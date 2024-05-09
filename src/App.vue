@@ -1,5 +1,4 @@
 <template>
-  <div>HOLA</div>
   <list-of-units></list-of-units>
 </template>
 <script setup>

@@ -4,10 +4,11 @@ import { dummyData } from '@/assets/dummyListData'
 
 export const useDummyListStore = defineStore('dummyList', () => {
   const dummies = ref(dummyData)
+  const filteredDummies = ref(dummyData)
   function populateList() {
     dummies.value = dummyData
   }
-  function filterList(classes: [String], rapport: [String], merc: boolean) {
+  function filterList(classes: [string], rapport: [string], merc: boolean) {
     /*
     la filter data sera en formato
         classes:[que clases quieres] todas las clases saldran,
@@ -18,18 +19,17 @@ export const useDummyListStore = defineStore('dummyList', () => {
 
     var filteredList = dummyData
     if (merc) {
-      console.log('MERC')
       filteredList = filteredList.filter((unit) => unit.merc === true)
-    } else if (rapport != null) {
-      filteredList = filteredList.filter((unit) => unit.rapport.every((r) => rapport.includes(r)))
+    } else if (rapport.length > 0) {
+      filteredList = filteredList.filter((unit) => rapport.every((r) => unit.rapport.includes(r)))
     }
-    if (classes != null) {
+    if (classes.length > 0) {
       filteredList = filteredList.filter((unit) => unit.class in classes)
     }
     console.log('filteredList:')
 
     console.log(filteredList)
-    dummies.value = filteredList
+    filteredDummies.value = filteredList
   }
-  return { dummies, populateList, filterList }
+  return { dummies, filteredDummies, populateList, filterList }
 })

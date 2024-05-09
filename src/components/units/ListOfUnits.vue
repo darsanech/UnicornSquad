@@ -1,6 +1,6 @@
 <template>
   <filter-list></filter-list>
-  <ul v-for="dummy in dummyList.dummies">
+  <ul v-for="dummy in dummyList.filteredDummies">
     <single-unit :unit="dummy"></single-unit>
   </ul>
 </template>
