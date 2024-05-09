@@ -8,7 +8,10 @@
   </section>
   <section>
     <h2>Classes</h2>
-    <input type="checkbox" />
+    <div v-for="sClass in dummyList.classes" :key="sClass">
+      <input checked type="checkbox" :id="sClass" v-model="classesFilter" :value="sClass" />
+      <label :for="sClass">{{ sClass }}</label>
+    </div>
   </section>
   <section>
     <h2>Mercenaries</h2>
@@ -20,14 +23,13 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-
 import { useDummyListStore } from '../../stores/dummyList.ts'
 const dummyList = useDummyListStore()
 const rapportFilter = ref([])
 const classesFilter = ref([])
 const mercFilter = ref(false)
 function applyFilter() {
-  console.log(rapportFilter.value)
-  dummyList.filterList(classesFilter, rapportFilter.value, mercFilter.value)
+  console.log(classesFilter.value)
+  dummyList.filterList(classesFilter.value, rapportFilter.value, mercFilter.value)
 }
 </script>
