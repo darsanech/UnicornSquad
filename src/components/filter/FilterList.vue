@@ -1,25 +1,28 @@
 <template>
-  <section>
-    <h2>Rapport</h2>
-    <div v-for="dummy in dummyList.dummies" :key="dummy.id">
-      <input checked type="checkbox" :id="dummy.id" v-model="rapportFilter" :value="dummy.id" />
-      <label :for="dummy.id">{{ dummy.name }}</label>
+  <div class="grid grid-cols-3">
+    <div class="m-4">
+      <p class="text-xl font-bold">Rapport</p>
+      <div v-for="dummy in dummyList.dummies" :key="dummy.id" v-if="!mercFilter">
+        <input checked type="checkbox" :id="dummy.id" v-model="rapportFilter" :value="dummy.id" />
+        <label :for="dummy.id">{{ dummy.name }}</label>
+      </div>
     </div>
-  </section>
-  <section>
-    <h2>Classes</h2>
-    <div v-for="sClass in dummyList.classes" :key="sClass">
-      <input checked type="checkbox" :id="sClass" v-model="classesFilter" :value="sClass" />
-      <label :for="sClass">{{ sClass }}</label>
+    <div class="m-4">
+      <p class="text-xl font-bold">Classes</p>
+
+      <div v-for="sClass in dummyList.classes" :key="sClass">
+        <input checked type="checkbox" :id="sClass" v-model="classesFilter" :value="sClass" />
+        <label :for="sClass">{{ sClass }}</label>
+      </div>
     </div>
-  </section>
-  <section>
-    <h2>Mercenaries</h2>
-    <input type="checkbox" unchecked v-model="mercFilter" />
-  </section>
-  <section>
-    <button @click="applyFilter">Filter</button>
-  </section>
+    <div class="m-4">
+      <p class="text-xl font-bold">Mercenaries</p>
+      <input type="checkbox" unchecked v-model="mercFilter" />
+    </div>
+    <div class="m-4">
+      <button class="bg-teal-200 border-teal-500 border-2" @click="applyFilter">Filter</button>
+    </div>
+  </div>
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -33,3 +36,4 @@ function applyFilter() {
   dummyList.filterList(classesFilter.value, rapportFilter.value, mercFilter.value)
 }
 </script>
+<style scoped></style>
