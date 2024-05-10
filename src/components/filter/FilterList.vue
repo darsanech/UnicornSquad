@@ -42,7 +42,7 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import BaseButton from '../ui/BaseButton.vue'
 import { useDummyListStore } from '../../stores/dummyList.ts'
 const dummyList = useDummyListStore()
@@ -68,6 +68,10 @@ function selectDropDown(option) {
   showClassesFilter.value = showClassesFilter.value === option ? 'none' : option
   applyFilter()
 }
+
+watch([rapportFilter, classesFilter], function () {
+  applyFilter()
+})
 </script>
 <style scoped>
 .dropDown {
