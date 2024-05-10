@@ -1,33 +1,38 @@
 <template>
   <div class="grid grid-cols-3">
     <div class="m-4">
-      <base-button :mode="buttonIsSelected('rapport')" :disabled="mercFilter">
-        <div @click="selectDropDown('rapport')" class="selectButton">
-          <p class="text-xl font-bold text-center">Rapport</p>
-        </div>
+      <base-button
+        :mode="buttonIsSelected('rapport')"
+        :disabled="mercFilter"
+        @click="selectDropDown('rapport')"
+      >
+        <p class="text-xl font-bold text-center">Rapport</p>
       </base-button>
     </div>
 
     <div class="m-4">
-      <base-button :mode="buttonIsSelected('class')">
-        <div @click="selectDropDown('class')" class="selectButton">
-          <p class="text-xl font-bold text-center">Classes</p>
-        </div>
+      <base-button :mode="buttonIsSelected('class')" @click="selectDropDown('class')">
+        <p class="text-xl font-bold text-center">Classes</p>
       </base-button>
     </div>
 
     <div class="m-4">
-      <base-button :mode="buttonIsSelected('merc')">
-        <div @click="selectMerc" class="selectedButton">
-          <p class="text-xl font-bold text-center">Mercenaries</p>
-        </div>
+      <base-button :mode="buttonIsSelected('merc')" @click="selectMerc">
+        <p class="text-xl font-bold text-center">Mercenaries</p>
       </base-button>
     </div>
   </div>
   <div class="dropDown" v-if="showClassesFilter == 'class'">
     <div v-for="sClass in dummyList.classes" :key="sClass">
       <div>
-        <input checked type="checkbox" :id="sClass" v-model="classesFilter" :value="sClass" />
+        <input
+          checked
+          type="checkbox"
+          :id="sClass"
+          v-model="classesFilter"
+          :value="sClass"
+          class="mr-1"
+        />
         <label :for="sClass">{{ sClass }}</label>
       </div>
     </div>
@@ -35,7 +40,14 @@
   <div class="dropDown" v-if="showClassesFilter == 'rapport'">
     <div v-for="dummy in dummyList.dummies" :key="dummy.id">
       <div>
-        <input checked type="checkbox" :id="dummy.id" v-model="rapportFilter" :value="dummy.id" />
+        <input
+          checked
+          type="checkbox"
+          :id="dummy.id"
+          v-model="rapportFilter"
+          :value="dummy.id"
+          class="mr-1"
+        />
         <label :for="dummy.id">{{ dummy.name }}</label>
       </div>
     </div>
@@ -78,6 +90,7 @@ watch([rapportFilter, classesFilter], function () {
 </script>
 <style scoped>
 .dropDown {
-  @apply flex flex-row border-2 border-solid border-blue-100 bg-blue-50;
+  @apply flex flex-wrap gap-4 p-2 justify-evenly justify-items-stretch
+  border-2 border-solid border-blue-100 bg-blue-50;
 }
 </style>
