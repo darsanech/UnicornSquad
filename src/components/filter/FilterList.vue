@@ -23,17 +23,17 @@
     </div>
   </div>
   <div class="dropDown" v-if="showClassesFilter == 'class'">
-    <div v-for="sClass in dummyList.classes" :key="sClass">
+    <div v-for="sClass in dummyList.classes" :key="sClass.id">
       <div>
         <input
           checked
           type="checkbox"
-          :id="sClass"
+          :id="sClass.id"
           v-model="classesFilter"
-          :value="sClass"
+          :value="sClass.id"
           class="mr-1"
         />
-        <label :for="sClass">{{ sClass }}</label>
+        <label :for="sClass.id">{{ sClass.name }}</label>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@
           type="checkbox"
           :id="dummy.id"
           v-model="rapportFilter"
-          :value="dummy.id"
+          :value="dummy.name"
           class="mr-1"
         />
         <label :for="dummy.id">{{ dummy.name }}</label>
