@@ -1,19 +1,21 @@
 <template>
-  <div class="grid grid-cols-3">
+  <div class="grid grid-cols-3 gap-2">
     <div
-      v-for="(units, index) in squadsList.army[0]"
-      class="border-2 border-black"
+      v-for="(unit, index) in squad"
+      class="border-2 border-black aspect-square"
       @click="addToSquad(index)"
     >
-      {{ units }}
+      {{ unit }}
     </div>
   </div>
 </template>
 <script setup>
 import { useSquadsStore } from '../../stores/squads.ts'
 const squadsList = useSquadsStore()
+const props = defineProps(['squad', 'armyId'])
+
 function addToSquad(unitId) {
-  console.log(unitId)
-  squadsList.addToSquad(0, unitId, unitId)
+  console.log(props.armyId)
+  squadsList.addToSquad(props.armyId, unitId, unitId)
 }
 </script>
