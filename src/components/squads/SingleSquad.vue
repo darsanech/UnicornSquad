@@ -15,6 +15,10 @@ const squadsList = useSquadsStore()
 const props = defineProps(['squad', 'armyId'])
 
 function addToSquad(unitId) {
+  if (props.armyId < 0) {
+    //chapuza
+    return
+  }
   console.log(props.armyId)
   squadsList.addToSquad(props.armyId, unitId, unitId)
 }

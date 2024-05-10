@@ -26,7 +26,7 @@ export const useSquadsStore = defineStore('squads', () => {
   ])
   function addToSquad(armyId: number, unitId: string, posId: number) {
     console.log()
-    army.value[armyId][2] = '200'
+    army.value[armyId][posId] = unitId
   }
   return { army, addToSquad }
 })
