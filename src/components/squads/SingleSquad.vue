@@ -5,12 +5,14 @@
       class="border-2 border-black aspect-square"
       @click="addToSquad(index)"
     >
-      {{ unit }}
+      <single-unit :unit="{ id: '001', name: 'Carlos' }"></single-unit>
     </div>
   </div>
 </template>
 <script setup>
 import { useSquadsStore } from '../../stores/squads.ts'
+import SingleUnit from '../units/SingleUnit.vue'
+
 const squadsList = useSquadsStore()
 const props = defineProps(['squad', 'armyId'])
 
