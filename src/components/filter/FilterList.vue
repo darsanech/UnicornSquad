@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-3">
     <div class="m-4">
-      <base-button :mode="buttonIsSelected('rapport')">
+      <base-button :mode="buttonIsSelected('rapport')" :disabled="mercFilter">
         <div @click="selectDropDown('rapport')" class="selectButton">
           <p class="text-xl font-bold text-center">Rapport</p>
         </div>
@@ -62,6 +62,9 @@ function applyFilter() {
 }
 function selectMerc() {
   mercFilter.value = !mercFilter.value
+  if (mercFilter.value && showClassesFilter.value === 'rapport') {
+    showClassesFilter.value = 'none'
+  }
   applyFilter()
 }
 function selectDropDown(option) {
