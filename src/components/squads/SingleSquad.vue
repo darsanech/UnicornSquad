@@ -5,23 +5,33 @@
       class="border-2 border-black aspect-square"
       @click="addToSquad(index)"
     >
-      <single-unit :unit="{ id: '001', name: 'Carlos' }"></single-unit>
+      <single-unit :unit="unit"></single-unit>
     </div>
   </div>
 </template>
 <script setup>
 import { useSquadsStore } from '../../stores/squads.ts'
+import { useMoveUnits } from '../../stores/moveUnits.ts'
 import SingleUnit from '../units/SingleUnit.vue'
 
 const squadsList = useSquadsStore()
+const moveUnits = useMoveUnits()
 const props = defineProps(['squad', 'armyId'])
 
-function addToSquad(unitId) {
+function addToSquad(index) {
   if (props.armyId < 0) {
     //chapuza
     return
   }
+  console.log('addtosquad')
+  if (moveUnits.unitIsSelected) {
+    squadsList.addToSquad(
+      props.armyId,
+      moveUnits.selectedUnit.id,
+      moveUnits.selectedUnit.name,
+      index
+    )
+  }
   console.log(props.armyId)
-  squadsList.addToSquad(props.armyId, unitId, unitId)
 }
 </script>
