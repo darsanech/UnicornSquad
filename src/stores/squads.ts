@@ -9,7 +9,7 @@ Army esta formado de 12 squads
 */
 
 export const useSquadsStore = defineStore('squads', () => {
-  const army = ref(new Array(12).fill(new Array(6).fill({ id: '', name: '' })))
+  const army = ref(new Array(12).fill(new Array(6).fill({ id: '000', name: 'PH' })))
   //   const army = ref([
   //     ['0', '0', '0', '0', '0', '0'],
   //     ['1', '1', '1', '1', '1', '1'],

@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-row">
-    <list-of-units class="basis-1/2"></list-of-units>
-    <grid-of-squads class="basis-1/2"></grid-of-squads>
+  <div class="flex flex-col">
+    <grid-of-squads></grid-of-squads>
+    <list-of-units></list-of-units>
   </div>
 </template>
 <script setup>
