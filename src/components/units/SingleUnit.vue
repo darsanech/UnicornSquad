@@ -3,14 +3,14 @@
     <div class="m-2">
       <img class="object-scale-down size-50" :src="urlImagen" />
     </div>
-    <div class="text-xl text-center">
+    <div v-if="showName" class="text-xl text-center">
       {{ unit.name }}
     </div>
   </div>
 </template>
 <script setup>
 import { computed } from 'vue'
-const props = defineProps(['unit'])
+const props = defineProps(['unit', 'showName'])
 const urlImagen = computed(() => {
   return 'src/assets/' + props.unit.id + '.jpg'
 })

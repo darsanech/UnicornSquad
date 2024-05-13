@@ -5,7 +5,7 @@
       class="border-2 border-black aspect-square"
       @click="addToSquad(index)"
     >
-      <single-unit :unit="unit"></single-unit>
+      <single-unit :unit="unit" :showName="showName"></single-unit>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ import SingleUnit from '../units/SingleUnit.vue'
 
 const squadsList = useSquadsStore()
 const moveUnits = useMoveUnits()
-const props = defineProps(['squad', 'armyId'])
+const props = defineProps(['squad', 'armyId', 'showName'])
 
 function addToSquad(index) {
   if (props.armyId < 0) {

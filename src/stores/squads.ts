@@ -9,23 +9,105 @@ Army esta formado de 12 squads
 */
 
 export const useSquadsStore = defineStore('squads', () => {
-  const army = ref(new Array(12).fill(new Array(6).fill({ id: '000', name: 'PH' })))
-  //   const army = ref([
-  //     ['0', '0', '0', '0', '0', '0'],
-  //     ['1', '1', '1', '1', '1', '1'],
-  //     ['2', '2', '2', '2', '2', '2'],
-  //     ['2', '2', '2', '2', '2', '2'],
-  //     ['2', '2', '2', '2', '2', '2'],
-  //     ['2', '2', '2', '2', '2', '2'],
-  //     ['2', '2', '2', '2', '2', '2'],
-  //     ['2', '2', '2', '2', '2', '2'],
-  //     ['2', '2', '2', '2', '2', '2'],
-  //     ['2', '2', '2', '2', '2', '2'],
-  //     ['2', '2', '2', '2', '2', '2'],
-  //     ['3', '3', '3', '3', '3', '3']
-  //   ])
+  const army = ref([
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ],
+    [
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' },
+      { id: '000', name: 'PH' }
+    ]
+  ])
   function addToSquad(armyId: number, unitId: string, unitName: string, posId: number) {
-    console.log('Addeando a la squad' + unitId)
     army.value[armyId][posId] = { id: unitId, name: unitName }
   }
   return { army, addToSquad }
