@@ -1,20 +1,11 @@
 <template>
-  <div class="grid grid-cols-10 justify-around gap-2" v-if="!unitsList.mercs">
+  <div class="grid grid-cols-10 justify-around gap-2">
     <single-unit
-      v-for="unit in unitsList.unitsFiltered"
+      v-for="unit in showList"
       :unit="unit"
       @click="selectUnitToMove(unit.id, unit.name, false)"
       :showName="true"
-      :merc="false"
-    ></single-unit>
-  </div>
-  <div class="grid grid-cols-10 justify-around gap-2" v-else>
-    <single-unit
-      v-for="sClass in classesList.mercsList"
-      :unit="sClass"
-      @click="selectUnitToMove(sClass.id, sClass.name, true)"
-      :showName="true"
-      :merc="true"
+      :merc="unitsList.mercs"
     ></single-unit>
   </div>
 </template>
@@ -22,6 +13,7 @@
 import { useUnitsStore } from '../../stores/data/unitsStore.ts'
 import { useClassesStore } from '../../stores/data/classesStore.ts'
 import { useMoveUnits } from '../../stores/moveUnits.ts'
+import { computed } from 'vue'
 
 import SingleUnit from './SingleUnit.vue'
 const unitsList = useUnitsStore()
@@ -30,4 +22,5 @@ const moveUnits = useMoveUnits()
 function selectUnitToMove(unitId, name) {
   moveUnits.changeSelectedUnit({ id: unitId, name: name })
 }
+function listToShow() {}
 </script>
