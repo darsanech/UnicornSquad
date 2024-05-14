@@ -29,41 +29,27 @@
       </base-button>
     </div>
   </div>
-  <div class="relative inline-block">
-    <div class="dropDown" v-if="showClassesFilter == 'class'">
-      <div v-for="sClass in classesList.classes" :key="sClass.id">
-        <div>
+  <div class="relative inline-block" v-if="showClassesFilter != 'none'">
+    <div class="dropDown">
+      <div v-for="filter in showList" :key="filter.id" class="capitalize">
+        <div class="bg-blue-200 bg-opacity-100 rounded-xl p-1">
           <input
             checked
             type="checkbox"
-            :id="sClass.id"
-            v-model="classesFilter"
-            :value="sClass.id"
-            class="mr-1"
-          />
-          <label class="capitalize" :for="sClass.id">{{ sClass.name.base }}</label>
-        </div>
-      </div>
-    </div>
-    <div class="dropDown" v-if="showClassesFilter == 'rapport'">
-      <div v-for="unit in unitsList.units" :key="unit.id">
-        <div>
-          <input
-            type="checkbox"
-            :id="unit.id"
+            :id="filter.id"
             v-model="rapportFilter"
-            :value="unit.id"
+            :value="filter.id"
             class="mr-1"
-            :disabled="disableRapport(unit.id)"
           />
-          <label class="capitalize" :for="unit.id">{{ unit.name }}</label>
+          <label v-if="showClassesFilter == 'rapport'" :for="filter.id">{{ filter.name }}</label>
+          <label v-else :for="filter.id">{{ filter.name.base }}</label>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import BaseButton from '../ui/BaseButton.vue'
 import { useDummyListStore } from '../../stores/dummyList.ts'
 import { useUnitsStore } from '../../stores/data/unitsStore.ts'
@@ -79,7 +65,7 @@ const moveUnits = useMoveUnits()
 const dummyList = useDummyListStore()
 const rapportFilter = ref([])
 const classesFilter = ref([])
-const showClassesFilter = ref('')
+const showClassesFilter = ref('none')
 const mercFilter = ref(false)
 function buttonIsSelected(option) {
   if (option === 'merc') {
@@ -88,6 +74,21 @@ function buttonIsSelected(option) {
   }
   return showClassesFilter.value === option ? 'activated' : 'inactive'
 }
+const showList = computed(() => {
+  console.log(showClassesFilter.value)
+  if (showClassesFilter.value == 'rapport') {
+    return unitsList.units
+  } else if (showClassesFilter.value == 'class') {
+    return classesList.classes
+  }
+})
+const filterList = computed(() => {
+  if (showClassesFilter.value == 'rapport') {
+    return rapportFilter
+  } else if (showClassesFilter.value == 'class') {
+    return classesFilter
+  }
+})
 function applyFilter() {
   if (mercFilter.value) {
     moveUnits.selectUnit(-1)
@@ -125,6 +126,6 @@ watch([rapportFilter, classesFilter], function () {
 <style scoped>
 .dropDown {
   @apply flex flex-wrap gap-4 p-2 justify-evenly justify-items-stretch
-  border-2 border-solid border-blue-100 bg-blue-50  block absolute z-10;
+  border-2 border-solid border-blue-900 bg-blue-300  block absolute z-10  bg-opacity-90 rounded-xl mr-2 ml-2 mt-0;
 }
 </style>
