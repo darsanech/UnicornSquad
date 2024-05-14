@@ -22,5 +22,11 @@ const moveUnits = useMoveUnits()
 function selectUnitToMove(unitId, name) {
   moveUnits.changeSelectedUnit({ id: unitId, name: name })
 }
-function listToShow() {}
+const showList = computed(() => {
+  if (unitsList.mercs) {
+    return classesList.mercsList
+  } else {
+    return unitsList.unitsFiltered
+  }
+})
 </script>
