@@ -67,9 +67,12 @@ import { useDummyListStore } from '../../stores/dummyList.ts'
 import { useUnitsStore } from '../../stores/data/unitsStore.ts'
 import { useClassesStore } from '../../stores/data/classesStore.ts'
 import { useRapportsStore } from '../../stores/data/rapportsStore.ts'
+import { useMoveUnits } from '../../stores/moveUnits.ts'
+
 const unitsList = useUnitsStore()
 const classesList = useClassesStore()
 const rapportsList = useRapportsStore()
+const moveUnits = useMoveUnits()
 
 const dummyList = useDummyListStore()
 const rapportFilter = ref([])
@@ -78,13 +81,14 @@ const showClassesFilter = ref('')
 const mercFilter = ref(false)
 function buttonIsSelected(option) {
   if (option === 'merc') {
+    classesList.filterMercs(classesFilter.value)
     return mercFilter.value ? 'activated' : 'inactive'
   }
   return showClassesFilter.value === option ? 'activated' : 'inactive'
 }
 function applyFilter() {
   if (mercFilter.value) {
-    classesList.filterMercs(classesFilter.value)
+    moveUnits.selectUnit(-1)
   } else {
     const rapported = rapportsList.getUnitsWithRapport(rapportFilter.value)
     unitsList.filterList(classesFilter.value, rapported, mercFilter.value)
@@ -106,15 +110,13 @@ function disableRapport(unitId) {
   return rapportFilter.value.length >= 5 && !rapportFilter.value.includes(unitId)
 }
 function clearRapports() {
-  console.log('CLEARRRR')
   rapportFilter.value = []
 }
 function clearClasses() {
-  console.log('CLEARCCC')
-
   classesFilter.value = []
 }
 watch([rapportFilter, classesFilter], function () {
+  moveUnits.selectUnit(-1)
   applyFilter()
 })
 </script>
