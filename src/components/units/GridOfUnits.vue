@@ -3,7 +3,7 @@
     <single-unit
       v-for="unit in unitsList.unitsFiltered"
       :unit="unit"
-      @click="selectUnitToMove(unit.id, unit.name)"
+      @click="selectUnitToMove(unit.id, unit.name, false)"
       :showName="true"
       :merc="false"
     ></single-unit>
@@ -12,7 +12,7 @@
     <single-unit
       v-for="sClass in classesList.mercsList"
       :unit="sClass"
-      @click="selectUnitToMove(sClass.id, sClass.name)"
+      @click="selectUnitToMove(sClass.id, sClass.name, true)"
       :showName="true"
       :merc="true"
     ></single-unit>
