@@ -8,11 +8,18 @@
       >
         <p class="text-xl font-bold text-center">Rapport</p>
       </base-button>
+
+      <base-button @click="clearRapports">
+        <p class="text-xs font-bold text-center">Clear</p>
+      </base-button>
     </div>
 
     <div class="m-4">
       <base-button :mode="buttonIsSelected('class')" @click="selectDropDown('class')">
         <p class="text-xl font-bold text-center">Classes</p>
+      </base-button>
+      <base-button @click="clearClasses">
+        <p class="text-xs font-bold text-center">Clear</p>
       </base-button>
     </div>
 
@@ -97,6 +104,15 @@ function selectDropDown(option) {
 }
 function disableRapport(unitId) {
   return rapportFilter.value.length >= 5 && !rapportFilter.value.includes(unitId)
+}
+function clearRapports() {
+  console.log('CLEARRRR')
+  rapportFilter.value = []
+}
+function clearClasses() {
+  console.log('CLEARCCC')
+
+  classesFilter.value = []
 }
 watch([rapportFilter, classesFilter], function () {
   applyFilter()
