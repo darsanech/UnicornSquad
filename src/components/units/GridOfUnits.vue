@@ -4,6 +4,7 @@
       v-for="dummy in dummyList.filteredDummies"
       :unit="dummy"
       @click="selectUnitToMove(dummy.id, dummy.name)"
+      :showName="true"
     ></single-unit>
   </div>
 </template>
