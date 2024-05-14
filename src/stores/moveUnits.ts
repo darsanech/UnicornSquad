@@ -1,21 +1,44 @@
 import { defineStore } from 'pinia'
-import { reactive } from 'vue'
+import { reactive, ref, computed } from 'vue'
 export const useMoveUnits = defineStore('moveSquads', () => {
-  const selectedUnit = reactive({ name: '', id: '' })
+  const selectedUnit = reactive({ name: '', id: -1 })
+  const selectedUnitId = ref(-1)
+  const selectedUnitName = ref('')
+
   function changeSelectedUnit(unit: {
     name: { base: string; prom: string } | string
-    id: string
+    id: number
     isMerc: boolean
   }) {
-    selectedUnit.id = unit.id
+    console.log('changeSelectedUnit')
+
+    selectedUnitId.value = unit.id
     if (typeof unit.name === 'string') {
-      selectedUnit.name = unit.name
+      selectedUnitName.value = unit.name
     } else {
-      selectedUnit.name = unit.name.base
+      selectedUnitName.value = unit.name.base
     }
   }
-  function unitIsSelected() {
-    return selectedUnit.id != ''
+  const unitIsSelected = computed(() => {
+    return selectedUnitId.value != -1
+  })
+  function selectUnit(unitId: number) {
+    console.log('selectUnit ' + unitId)
+
+    selectedUnitId.value = unitId
   }
-  return { selectedUnit, changeSelectedUnit, unitIsSelected }
+  function selectUnitIdF(unitId: number) {
+    return selectedUnitId.value === unitId
+  }
+  const selectedUnitIdF = computed(() => {
+    return selectedUnitId.value
+  })
+  return {
+    selectedUnit,
+    selectedUnitId,
+    selectedUnitName,
+    changeSelectedUnit,
+    unitIsSelected,
+    selectUnit
+  }
 })

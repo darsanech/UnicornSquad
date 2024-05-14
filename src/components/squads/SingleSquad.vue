@@ -24,12 +24,8 @@ function addToSquad(index) {
     return
   }
   if (moveUnits.unitIsSelected) {
-    squadsList.addToSquad(
-      props.armyId,
-      moveUnits.selectedUnit.id,
-      moveUnits.selectedUnit.name,
-      index
-    )
+    squadsList.addToSquad(props.armyId, moveUnits.selectedUnitId, moveUnits.selectedUnitName, index)
+    moveUnits.selectUnit(-1)
   }
 }
 </script>
