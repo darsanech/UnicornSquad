@@ -1,4 +1,4 @@
-export const units = [
+export const unitsData = [
   { id: 1, name: 'alain', class: 1 },
   { id: 2, name: 'scarlett', class: 24 },
   { id: 3, name: 'lex', class: 2 },

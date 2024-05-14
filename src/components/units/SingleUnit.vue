@@ -12,6 +12,7 @@
 import { computed } from 'vue'
 const props = defineProps(['unit', 'showName'])
 const urlImagen = computed(() => {
-  return 'src/assets/' + props.unit.id + '.jpg'
+  // return 'src/assets/' + props.unit.id + '.jpg'
+  return 'src/assets/000.jpg'
 })
 </script>

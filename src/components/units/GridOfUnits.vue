@@ -1,19 +1,19 @@
 <template>
   <div class="grid grid-cols-4 justify-around gap-2">
     <single-unit
-      v-for="dummy in dummyList.filteredDummies"
-      :unit="dummy"
-      @click="selectUnitToMove(dummy.id, dummy.name)"
+      v-for="unit in unitsList.unitsFiltered"
+      :unit="unit"
+      @click="selectUnitToMove(unit.id, unit.name)"
       :showName="true"
     ></single-unit>
   </div>
 </template>
 <script setup>
-import { useDummyListStore } from '../../stores/dummyList.ts'
+import { useUnitsStore } from '../../stores/data/unitsStore.ts'
 import { useMoveUnits } from '../../stores/moveUnits.ts'
 
 import SingleUnit from './SingleUnit.vue'
-const dummyList = useDummyListStore()
+const unitsList = useUnitsStore()
 const moveUnits = useMoveUnits()
 function selectUnitToMove(unitId, name) {
   moveUnits.changeSelectedUnit({ id: unitId, name: name })

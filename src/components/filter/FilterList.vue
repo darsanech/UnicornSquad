@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="dropDown" v-if="showClassesFilter == 'class'">
-    <div v-for="sClass in dummyList.classes" :key="sClass.id">
+    <div v-for="sClass in classesList.classes" :key="sClass.id">
       <div>
         <input
           checked
@@ -33,22 +33,22 @@
           :value="sClass.id"
           class="mr-1"
         />
-        <label :for="sClass.id">{{ sClass.name }}</label>
+        <label :for="sClass.id">{{ sClass.name.base }}</label>
       </div>
     </div>
   </div>
   <div class="dropDown" v-if="showClassesFilter == 'rapport'">
-    <div v-for="dummy in dummyList.dummies" :key="dummy.id">
+    <div v-for="unit in unitsList.units" :key="unit.id">
       <div>
         <input
           checked
           type="checkbox"
-          :id="dummy.id"
+          :id="unit.id"
           v-model="rapportFilter"
-          :value="dummy.name"
+          :value="unit.name"
           class="mr-1"
         />
-        <label :for="dummy.id">{{ dummy.name }}</label>
+        <label :for="unit.id">{{ unit.name }}</label>
       </div>
     </div>
   </div>
@@ -57,6 +57,13 @@
 import { ref, watch } from 'vue'
 import BaseButton from '../ui/BaseButton.vue'
 import { useDummyListStore } from '../../stores/dummyList.ts'
+import { useUnitsStore } from '../../stores/data/unitsStore.ts'
+import { useClassesStore } from '../../stores/data/classesStore.ts'
+import { useRapportsStore } from '../../stores/data/rapportsStore.ts'
+const unitsList = useUnitsStore()
+const classesList = useClassesStore()
+const rapportsList = useUnitsStore()
+
 const dummyList = useDummyListStore()
 const rapportFilter = ref([])
 const classesFilter = ref([])

@@ -1,4 +1,4 @@
-export const classes = [
+export const classesData = [
   { id: 1, name: { base: 'lord', prom: 'high lord' } },
   { id: 2, name: { base: 'fighter', prom: 'vanguard' } },
   { id: 3, name: { base: 'soldier', prom: 'sergeant' } },
