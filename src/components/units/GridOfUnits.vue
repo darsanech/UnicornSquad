@@ -6,7 +6,7 @@
       @click="selectUnitToMove(unit.id, unit.name, false)"
       :showName="true"
       :merc="unitsList.mercs"
-      :class="{ selected: unit.id === selectedUnit }"
+      :class="{ selected: unit.id === moveUnits.selectedUnitIdF }"
     ></single-unit>
   </div>
 </template>
