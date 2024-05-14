@@ -41,12 +41,12 @@
     <div v-for="unit in unitsList.units" :key="unit.id">
       <div>
         <input
-          checked
           type="checkbox"
           :id="unit.id"
           v-model="rapportFilter"
           :value="unit.id"
           class="mr-1"
+          :disabled="disableRapport(unit.id)"
         />
         <label :for="unit.id">{{ unit.name }}</label>
       </div>
@@ -95,7 +95,9 @@ function selectDropDown(option) {
   showClassesFilter.value = showClassesFilter.value === option ? 'none' : option
   applyFilter()
 }
-
+function disableRapport(unitId) {
+  return rapportFilter.value.length >= 5 && !rapportFilter.value.includes(unitId)
+}
 watch([rapportFilter, classesFilter], function () {
   applyFilter()
 })
