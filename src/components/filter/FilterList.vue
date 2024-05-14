@@ -29,33 +29,35 @@
       </base-button>
     </div>
   </div>
-  <div class="dropDown" v-if="showClassesFilter == 'class'">
-    <div v-for="sClass in classesList.classes" :key="sClass.id">
-      <div>
-        <input
-          checked
-          type="checkbox"
-          :id="sClass.id"
-          v-model="classesFilter"
-          :value="sClass.id"
-          class="mr-1"
-        />
-        <label :for="sClass.id">{{ sClass.name.base }}</label>
+  <div class="relative inline-block">
+    <div class="dropDown" v-if="showClassesFilter == 'class'">
+      <div v-for="sClass in classesList.classes" :key="sClass.id">
+        <div>
+          <input
+            checked
+            type="checkbox"
+            :id="sClass.id"
+            v-model="classesFilter"
+            :value="sClass.id"
+            class="mr-1"
+          />
+          <label class="capitalize" :for="sClass.id">{{ sClass.name.base }}</label>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="dropDown" v-if="showClassesFilter == 'rapport'">
-    <div v-for="unit in unitsList.units" :key="unit.id">
-      <div>
-        <input
-          type="checkbox"
-          :id="unit.id"
-          v-model="rapportFilter"
-          :value="unit.id"
-          class="mr-1"
-          :disabled="disableRapport(unit.id)"
-        />
-        <label :for="unit.id">{{ unit.name }}</label>
+    <div class="dropDown" v-if="showClassesFilter == 'rapport'">
+      <div v-for="unit in unitsList.units" :key="unit.id">
+        <div>
+          <input
+            type="checkbox"
+            :id="unit.id"
+            v-model="rapportFilter"
+            :value="unit.id"
+            class="mr-1"
+            :disabled="disableRapport(unit.id)"
+          />
+          <label class="capitalize" :for="unit.id">{{ unit.name }}</label>
+        </div>
       </div>
     </div>
   </div>
@@ -123,6 +125,6 @@ watch([rapportFilter, classesFilter], function () {
 <style scoped>
 .dropDown {
   @apply flex flex-wrap gap-4 p-2 justify-evenly justify-items-stretch
-  border-2 border-solid border-blue-100 bg-blue-50;
+  border-2 border-solid border-blue-100 bg-blue-50  block absolute z-10;
 }
 </style>

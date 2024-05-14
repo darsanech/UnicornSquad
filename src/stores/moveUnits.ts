@@ -9,8 +9,6 @@ export const useMoveUnits = defineStore('moveSquads', () => {
     id: number
     isMerc: boolean
   }) {
-    console.log('changeSelectedUnit')
-
     selectedUnitId.value = unit.id
     if (typeof unit.name === 'string') {
       selectedUnitName.value = unit.name
@@ -22,8 +20,6 @@ export const useMoveUnits = defineStore('moveSquads', () => {
     return selectedUnitId.value != -1
   })
   function selectUnit(unitId: number) {
-    console.log('selectUnit ' + unitId)
-
     selectedUnitId.value = unitId
   }
   const selectedUnitIdF = computed(() => {

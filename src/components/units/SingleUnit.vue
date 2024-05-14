@@ -3,7 +3,7 @@
     <div class="m-2">
       <img class="object-scale-down size-50" :src="urlImagen" />
     </div>
-    <div v-if="showName" class="text-xl text-center">
+    <div v-if="showName" class="text-base text-center capitalize">
       <p v-if="!merc">{{ unit.name }}</p>
       <p v-else>{{ unit.name.base }}</p>
     </div>
