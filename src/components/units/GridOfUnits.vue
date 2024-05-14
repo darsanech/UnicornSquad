@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-4 justify-around gap-2">
+  <div class="grid grid-cols-10 justify-around gap-2">
     <single-unit
       v-for="unit in unitsList.unitsFiltered"
       :unit="unit"

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-6 flex-wrap m-2" v-if="selectedSquad < 0">
+  <div class="grid grid-cols-3 flex-wrap m-2" v-if="selectedSquad < 0">
     <single-squad
       aria-disabled="true"
       @click="selectedSquad = index"
@@ -10,7 +10,7 @@
       :showName="false"
     ></single-squad>
   </div>
-  <div v-else class="p-8 max-w-xl self-center flex space-x-10">
+  <div v-else class="p-8 self-center flex space-x-10">
     <base-button @click="goToSquad(prevSquad)">Go to Squad {{ prevSquad }}</base-button>
     <div>
       <base-button @click="goToSquad(-1)">Squad Number {{ selectedSquad }}</base-button>
