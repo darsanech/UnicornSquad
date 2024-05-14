@@ -45,7 +45,7 @@
           type="checkbox"
           :id="unit.id"
           v-model="rapportFilter"
-          :value="unit.name"
+          :value="unit.id"
           class="mr-1"
         />
         <label :for="unit.id">{{ unit.name }}</label>
@@ -62,7 +62,7 @@ import { useClassesStore } from '../../stores/data/classesStore.ts'
 import { useRapportsStore } from '../../stores/data/rapportsStore.ts'
 const unitsList = useUnitsStore()
 const classesList = useClassesStore()
-const rapportsList = useUnitsStore()
+const rapportsList = useRapportsStore()
 
 const dummyList = useDummyListStore()
 const rapportFilter = ref([])
@@ -76,7 +76,7 @@ function buttonIsSelected(option) {
   return showClassesFilter.value === option ? 'activated' : 'inactive'
 }
 function applyFilter() {
-  console.log(classesFilter.value)
+  rapportsList.getUnitsWithRapport(rapportFilter.value)
   unitsList.filterList(classesFilter.value, rapportFilter.value, mercFilter.value)
   // dummyList.filterList(classesFilter.value, rapportFilter.value, mercFilter.value)
 }

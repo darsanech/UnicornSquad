@@ -19,7 +19,6 @@ export const useUnitsStore = defineStore('unitsStore', () => {
     if (classes.length > 0) {
       filteredList = filteredList.filter((unit) => classes.includes(unit.class))
     }
-    console.log(filteredList)
     unitsFiltered.value = filteredList
   }
 

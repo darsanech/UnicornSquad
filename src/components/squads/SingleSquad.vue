@@ -23,7 +23,6 @@ function addToSquad(index) {
     //chapuza
     return
   }
-  console.log('addtosquad')
   if (moveUnits.unitIsSelected) {
     squadsList.addToSquad(
       props.armyId,
@@ -32,6 +31,5 @@ function addToSquad(index) {
       index
     )
   }
-  console.log(props.armyId)
 }
 </script>
