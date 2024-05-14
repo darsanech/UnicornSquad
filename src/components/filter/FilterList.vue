@@ -76,9 +76,8 @@ function buttonIsSelected(option) {
   return showClassesFilter.value === option ? 'activated' : 'inactive'
 }
 function applyFilter() {
-  rapportsList.getUnitsWithRapport(rapportFilter.value)
-  unitsList.filterList(classesFilter.value, rapportFilter.value, mercFilter.value)
-  // dummyList.filterList(classesFilter.value, rapportFilter.value, mercFilter.value)
+  const rapported = rapportsList.getUnitsWithRapport(rapportFilter.value)
+  unitsList.filterList(classesFilter.value, rapported, mercFilter.value)
 }
 function selectMerc() {
   mercFilter.value = !mercFilter.value
