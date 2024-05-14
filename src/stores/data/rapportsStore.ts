@@ -26,7 +26,8 @@ export const useRapportsStore = defineStore('rapportsStore', () => {
         }
       }
     }
-    return unitsWAllRapports
+
+    return unitsWAllRapports.concat(rapport)
   }
   return { rapports, getUnitsWithRapport }
 })

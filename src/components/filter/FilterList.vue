@@ -76,11 +76,16 @@ function buttonIsSelected(option) {
   return showClassesFilter.value === option ? 'activated' : 'inactive'
 }
 function applyFilter() {
-  const rapported = rapportsList.getUnitsWithRapport(rapportFilter.value)
-  unitsList.filterList(classesFilter.value, rapported, mercFilter.value)
+  if (mercFilter.value) {
+    classesList.filterMercs(classesFilter.value)
+  } else {
+    const rapported = rapportsList.getUnitsWithRapport(rapportFilter.value)
+    unitsList.filterList(classesFilter.value, rapported, mercFilter.value)
+  }
 }
 function selectMerc() {
   mercFilter.value = !mercFilter.value
+  unitsList.mercFilter(mercFilter.value)
   if (mercFilter.value && showClassesFilter.value === 'rapport') {
     showClassesFilter.value = 'none'
   }

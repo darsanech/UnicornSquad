@@ -4,6 +4,7 @@ import { reactive, ref } from 'vue'
 export const useUnitsStore = defineStore('unitsStore', () => {
   const units = reactive(unitsData)
   const unitsFiltered = ref(unitsData)
+  const mercs = ref(false)
 
   function filterList(classes: [number], rapport: [number], merc: boolean) {
     /*
@@ -13,7 +14,7 @@ export const useUnitsStore = defineStore('unitsStore', () => {
         merc:bool solo merc o no
     */
     var filteredList = unitsData
-    if (rapport.length > 0) {
+    if (!merc && rapport.length > 0) {
       filteredList = filteredList.filter((unit) => rapport.includes(unit.id))
     }
     if (classes.length > 0) {
@@ -21,6 +22,8 @@ export const useUnitsStore = defineStore('unitsStore', () => {
     }
     unitsFiltered.value = filteredList
   }
-
-  return { units, unitsFiltered, filterList }
+  function mercFilter(option: boolean) {
+    mercs.value = option
+  }
+  return { units, unitsFiltered, mercs, filterList, mercFilter }
 })
