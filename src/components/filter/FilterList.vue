@@ -77,7 +77,8 @@ function buttonIsSelected(option) {
 }
 function applyFilter() {
   console.log(classesFilter.value)
-  dummyList.filterList(classesFilter.value, rapportFilter.value, mercFilter.value)
+  unitsList.filterList(classesFilter.value, rapportFilter.value, mercFilter.value)
+  // dummyList.filterList(classesFilter.value, rapportFilter.value, mercFilter.value)
 }
 function selectMerc() {
   mercFilter.value = !mercFilter.value
