@@ -7,6 +7,7 @@
       :showName="true"
       :merc="unitsList.mercs"
       :class="{ selected: unit.id === moveUnits.selectedUnitIdF }"
+      :selected="unit.id === moveUnits.selectedUnitIdF"
     ></single-unit>
   </div>
 </template>

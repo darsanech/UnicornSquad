@@ -1,9 +1,13 @@
 <template>
-  <div class="border border-2">
+  <div class="border border-2" :class="{ selectedBg: selected }">
     <div class="m-2">
-      <img class="object-scale-down size-50" :src="urlImagen" />
+      <img class="object-scale-down size-50" :src="urlImagen" :class="{ selectedImg: selected }" />
     </div>
-    <div v-if="showName" class="text-base text-center capitalize">
+    <div
+      v-if="showName"
+      class="text-base text-center capitalize"
+      :class="{ selectedText: selected }"
+    >
       <p v-if="!merc">{{ unit.name }}</p>
 
       <p v-else-if="globalParam.promClass">{{ unit.name.base }}</p>
@@ -16,9 +20,20 @@ import { useGlobalStore } from '../../stores/globalStore.ts'
 import { computed } from 'vue'
 const globalParam = useGlobalStore()
 
-const props = defineProps(['unit', 'showName', 'merc'])
+const props = defineProps(['unit', 'showName', 'merc', 'selected'])
 const urlImagen = computed(() => {
   // return 'src/assets/' + props.unit.id + '.jpg'
   return 'src/assets/000.jpg'
 })
 </script>
+<style scoped>
+.selectedBg {
+  @apply bg-green-400 border-green-700;
+}
+.selectedText {
+  @apply text-blue-950 font-extrabold;
+}
+.selectedImg {
+  @apply animate-bounce border-green-700 border;
+}
+</style>
