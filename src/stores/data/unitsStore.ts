@@ -12,20 +12,16 @@ export const useUnitsStore = defineStore('unitsStore', () => {
 
   function setFilterRapport(rapport: [number]) {
     rapportFilter.value = rapport
+    updateFilterList()
   }
   function setFilterClasses(classes: [number]) {
     classesFilter.value = classes
+    updateFilterList()
   }
 
   function mercFilter(option: boolean) {
     mercs.value = option
-  }
-  function returnShowList() {
-    if (mercs.value) {
-      return classesFiltered
-    } else {
-      return unitsFiltered
-    }
+    updateFilterList()
   }
   function updateFilterList() {
     if (mercs.value) {
@@ -42,7 +38,8 @@ export const useUnitsStore = defineStore('unitsStore', () => {
         filteredListUnits = filteredListUnits.filter((unit) =>
           rapportFilter.value.includes(unit.id)
         )
-      } else if (classesFilter.value.length > 0) {
+      }
+      if (classesFilter.value.length > 0) {
         filteredListUnits = filteredListUnits.filter((unit) =>
           classesFilter.value.includes(unit.class)
         )

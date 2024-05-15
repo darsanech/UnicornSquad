@@ -4,22 +4,27 @@
       <base-button
         :mode="buttonIsSelected('rapport')"
         :disabled="mercFilter"
+        :addOn="getListFilterSize('rapport')"
         @click="selectDropDown('rapport')"
       >
         <p class="text-xl font-bold text-center">Rapport</p>
       </base-button>
 
-      <base-button @click="clearListButton('rapport')">
-        <p class="text-xs font-bold text-center">Clear</p>
+      <base-button @click="clearListButton('rapport')" :mode="'small'">
+        <p>Clear</p>
       </base-button>
     </div>
 
     <div class="m-4">
-      <base-button :mode="buttonIsSelected('class')" @click="selectDropDown('class')">
+      <base-button
+        :mode="buttonIsSelected('class')"
+        @click="selectDropDown('class')"
+        :addOn="getListFilterSize('class')"
+      >
         <p class="text-xl font-bold text-center">Classes</p>
       </base-button>
-      <base-button @click="clearListButton('class')">
-        <p class="text-xs font-bold text-center">Clear</p>
+      <base-button @click="clearListButton('class')" :mode="'small'">
+        <p>Clear</p>
       </base-button>
     </div>
 
@@ -82,6 +87,8 @@ function clearListButton(option) {
   } else {
     unitsList.setFilterClasses([])
   }
-  unitsList.updateFilterList()
+}
+function getListFilterSize(option) {
+  return filtersList.listFilterSize(option)
 }
 </script>

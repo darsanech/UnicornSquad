@@ -18,6 +18,12 @@ export const useFiltersStore = defineStore('filtersStore', () => {
       listClassesFilter.value = []
     }
   }
-
-  return { filterList, clearList }
+  function listFilterSize(option: string) {
+    if (option === 'rapport') {
+      return listRapportsFilter.value.length
+    } else {
+      return listClassesFilter.value.length
+    }
+  }
+  return { filterList, clearList, listFilterSize }
 })

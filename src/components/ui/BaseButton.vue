@@ -1,10 +1,11 @@
 <template>
-  <button class="baseButton" :class="mode">
+  <button class="baseButton relative" :class="mode">
+    <div v-if="addOn > 0" class="numberOfFilters">{{ addOn }}</div>
     <slot></slot>
   </button>
 </template>
 <script setup>
-const props = defineProps(['mode'])
+const props = defineProps(['mode', 'addOn'])
 </script>
 <style scoped>
 .baseButton {
@@ -22,5 +23,15 @@ button:hover {
 }
 button:disabled {
   @apply border-gray-300 bg-gray-200;
+}
+.small {
+  @apply border-red-400 bg-red-100 text-xs font-bold text-center;
+}
+.small:hover {
+  @apply border-red-500 bg-red-300 text-xs font-bold text-center;
+}
+.numberOfFilters {
+  @apply left-0 top-0 absolute -mt-3 -ml-4 bg-green-100 border-green-500 
+  border-2 border-solid rounded-full aspect-square z-10 w-8;
 }
 </style>
