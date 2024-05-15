@@ -32,6 +32,9 @@
       <base-button :mode="buttonIsSelected('merc')" @click="selectMerc">
         <p class="text-xl font-bold text-center">Mercenaries</p>
       </base-button>
+      <base-button :mode="isPromoted()" @click="promote()">
+        <p>Promote</p>
+      </base-button>
     </div>
   </div>
   <filter-component
@@ -49,6 +52,7 @@
 import { ref, watch, computed } from 'vue'
 import BaseButton from '../ui/BaseButton.vue'
 import { useDummyListStore } from '../../stores/dummyList.ts'
+import { useGlobalStore } from '../../stores/globalStore.ts'
 import { useUnitsStore } from '../../stores/data/unitsStore.ts'
 import { useClassesStore } from '../../stores/data/classesStore.ts'
 import { useFiltersStore } from '../../stores/data/filtersStore.ts'
@@ -58,6 +62,7 @@ import FilterComponent from './FilterComponent.vue'
 const unitsList = useUnitsStore()
 const classesList = useClassesStore()
 const filtersList = useFiltersStore()
+const globalParam = useGlobalStore()
 
 const dummyList = useDummyListStore()
 const rapportFilter = ref([])
@@ -68,6 +73,13 @@ function buttonIsSelected(option) {
     return mercFilter.value ? 'activated' : 'inactive'
   }
   return showClassesFilter.value === option ? 'activated' : 'inactive'
+}
+function isPromoted() {
+  console.log(globalParam.promClass)
+  return globalParam.promClass ? 'smallActive' : 'small'
+}
+function promote() {
+  return globalParam.promote()
 }
 function selectMerc() {
   mercFilter.value = !mercFilter.value

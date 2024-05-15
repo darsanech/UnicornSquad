@@ -12,7 +12,8 @@
             class="mr-1"
           />
           <label v-if="isRapport" :for="filter.id">{{ filter.name }}</label>
-          <label v-else :for="filter.id">{{ filter.name.base }}</label>
+          <label v-else-if="globalParam.promClass" :for="filter.id">{{ filter.name.base }}</label>
+          <label v-else :for="filter.id">{{ filter.name.prom }}</label>
         </div>
       </div>
     </div>
@@ -23,11 +24,13 @@ import { ref, computed, watch } from 'vue'
 import { useUnitsStore } from '../../stores/data/unitsStore.ts'
 import { useRapportsStore } from '../../stores/data/rapportsStore.ts'
 import { useFiltersStore } from '../../stores/data/filtersStore.ts'
+import { useGlobalStore } from '../../stores/globalStore.ts'
 
 const props = defineProps(['list', 'filterMode'])
 const unitsList = useUnitsStore()
 const rapportsList = useRapportsStore()
 const filtersList = useFiltersStore()
+const globalParam = useGlobalStore()
 
 const listFilter = ref(filtersList.filterList(props.filterMode))
 

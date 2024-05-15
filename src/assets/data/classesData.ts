@@ -20,12 +20,12 @@ export const classesData = [
   { id: 119, name: { base: 'shaman', prom: 'druid' } },
   { id: 120, name: { base: 'wyvern knight', prom: 'wyvern master' } },
   { id: 121, name: { base: 'gryphon knight', prom: 'gryphon master' } },
-  { id: 122, name: { base: 'elven archer' } },
-  { id: 123, name: { base: 'feathersword' } },
+  { id: 122, name: { base: 'elven archer', prom: 'elven archer' } },
+  { id: 123, name: { base: 'feathersword', prom: 'feathersword' } },
   { id: 124, name: { base: 'priestess', prom: 'high priestess' } },
   { id: 125, name: { base: 'crusader', prom: 'valkyria' } },
-  { id: 126, name: { base: 'elven augur' } },
-  { id: 127, name: { base: 'paladin' } },
-  { id: 128, name: { base: 'prince' } },
-  { id: 129, name: { base: 'dark marquess' } }
+  { id: 126, name: { base: 'elven augur', prom: 'elven augur' } },
+  { id: 127, name: { base: 'paladin', prom: 'paladin' } },
+  { id: 128, name: { base: 'prince', prom: 'prince' } },
+  { id: 129, name: { base: 'dark marquess', prom: 'dark marquess' } }
 ]
