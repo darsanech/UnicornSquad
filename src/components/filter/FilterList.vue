@@ -9,7 +9,7 @@
         <p class="text-xl font-bold text-center">Rapport</p>
       </base-button>
 
-      <base-button @click="clearRapports">
+      <base-button @click="clearListButton('rapport')">
         <p class="text-xs font-bold text-center">Clear</p>
       </base-button>
     </div>
@@ -18,7 +18,7 @@
       <base-button :mode="buttonIsSelected('class')" @click="selectDropDown('class')">
         <p class="text-xl font-bold text-center">Classes</p>
       </base-button>
-      <base-button @click="clearClasses">
+      <base-button @click="clearListButton('class')">
         <p class="text-xs font-bold text-center">Clear</p>
       </base-button>
     </div>
@@ -48,12 +48,15 @@ import { useUnitsStore } from '../../stores/data/unitsStore.ts'
 import { useClassesStore } from '../../stores/data/classesStore.ts'
 import { useRapportsStore } from '../../stores/data/rapportsStore.ts'
 import { useMoveUnits } from '../../stores/moveUnits.ts'
+import { useFiltersStore } from '../../stores/data/filtersStore.ts'
+
 import FilterComponent from './FilterComponent.vue'
 
 const unitsList = useUnitsStore()
 const classesList = useClassesStore()
 const rapportsList = useRapportsStore()
 const moveUnits = useMoveUnits()
+const filtersList = useFiltersStore()
 
 const dummyList = useDummyListStore()
 const rapportFilter = ref([])
@@ -77,10 +80,13 @@ function selectDropDown(option) {
   showClassesFilter.value = showClassesFilter.value === option ? 'none' : option
 }
 
-function clearRapports() {
-  console.log('clearRapports')
-}
-function clearClasses() {
-  console.log('clearClasses')
+function clearListButton(option) {
+  filtersList.clearList(option)
+  if (option === 'rapport') {
+    unitsList.setFilterRapport([])
+  } else {
+    unitsList.setFilterClasses([])
+  }
+  unitsList.updateFilterList()
 }
 </script>

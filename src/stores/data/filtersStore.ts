@@ -11,6 +11,13 @@ export const useFiltersStore = defineStore('filtersStore', () => {
       return listClassesFilter
     }
   }
+  function clearList(option: string) {
+    if (option === 'rapport') {
+      listRapportsFilter.value = []
+    } else {
+      listClassesFilter.value = []
+    }
+  }
 
-  return { filterList }
+  return { filterList, clearList }
 })
