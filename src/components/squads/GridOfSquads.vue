@@ -1,26 +1,35 @@
 <template>
-  <div class="grid grid-cols-3 flex-wrap m-2" v-if="selectedSquad < 0">
-    <single-squad
-      aria-disabled="true"
-      @click="selectedSquad = index"
-      v-for="(squad, index) in squadsList.army"
-      :armyId="-1"
-      :squad="squad"
-      class="m-4"
-      :showName="false"
-    ></single-squad>
-  </div>
-  <div v-else class="p-8 self-center flex space-x-10">
-    <base-button @click="goToSquad(prevSquad)">Go to Squad {{ prevSquad }}</base-button>
-    <div>
-      <base-button @click="goToSquad(-1)">Squad Number {{ selectedSquad }}</base-button>
+  <div class="">
+    <div class="grid grid-cols-3 flex-wrap m-2" v-if="selectedSquad < 0">
+      <single-squad
+        aria-disabled="true"
+        @click="selectedSquad = index"
+        v-for="(squad, index) in squadsList.army"
+        :armyId="-1"
+        :squad="squad"
+        class="m-4"
+        :showName="false"
+      ></single-squad>
+    </div>
+    <div v-else class="">
+      <div class="flex flex-row">
+        <base-button @click="goToSquad(prevSquad)" :mode="'small'"
+          >Go to Squad {{ prevSquad }}</base-button
+        >
+        <base-button @click="goToSquad(-1)" :mode="'inactive'"
+          ><p class="text-xl font-bold text-center">All Squads</p></base-button
+        >
+        <base-button @click="goToSquad(nextSquad)" :mode="'small'"
+          >Go to Squad {{ nextSquad }}</base-button
+        >
+      </div>
       <single-squad
         :squad="squadsList.army[selectedSquad]"
         :armyId="selectedSquad"
         :showName="true"
       ></single-squad>
+      <div>Squad number {{ selectedSquad }}</div>
     </div>
-    <base-button @click="goToSquad(nextSquad)">Go to Squad {{ nextSquad }}</base-button>
   </div>
 </template>
 <script setup>

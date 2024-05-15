@@ -3,11 +3,11 @@
     <filter-list></filter-list>
   </div>
   <div class="flex flex-row">
-    <div class="basis-2/3">
+    <div class="basis-3/5">
       <list-of-units></list-of-units>
     </div>
-    <div class="basis-1/3">
-      <grid-of-squads class="fixed"></grid-of-squads>
+    <div class="basis-2/5 relative">
+      <grid-of-squads class="sticky top-36"></grid-of-squads>
     </div>
   </div>
 </template>
