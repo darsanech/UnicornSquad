@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-10 justify-around gap-2">
+  <div class="flex flex-row flex-wrap gap-2">
     <single-unit
       v-for="unit in showList"
       :unit="unit"
