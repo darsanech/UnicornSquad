@@ -1,7 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <filter-list></filter-list>
-    <grid-of-units></grid-of-units>
+    <grid-of-units class="ml-2"></grid-of-units>
   </div>
 </template>
 <script setup>

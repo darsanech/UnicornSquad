@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-3">
+  <div class="filtro flex flex-row gap-2 justify-between">
     <div class="m-4">
       <base-button
         :mode="buttonIsSelected('rapport')"
@@ -9,12 +9,10 @@
       >
         <p class="text-xl font-bold text-center">Rapport</p>
       </base-button>
-
       <base-button @click="clearListButton('rapport')" :mode="'small'">
         <p>Clear</p>
       </base-button>
     </div>
-
     <div class="m-4">
       <base-button
         :mode="buttonIsSelected('class')"
@@ -104,3 +102,8 @@ function getListFilterSize(option) {
   return filtersList.listFilterSize(option)
 }
 </script>
+<style scoped>
+.filtro {
+  @apply border border-indigo-100 border-2 mb-2 bg-indigo-50;
+}
+</style>
