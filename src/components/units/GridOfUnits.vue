@@ -32,7 +32,7 @@ function selectUnitToMove(unitId, name) {
 }
 const showList = computed(() => {
   if (unitsList.mercs) {
-    return classesList.mercsList
+    return unitsList.classesFiltered
   } else {
     return unitsList.unitsFiltered
   }

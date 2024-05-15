@@ -46,16 +46,12 @@ import BaseButton from '../ui/BaseButton.vue'
 import { useDummyListStore } from '../../stores/dummyList.ts'
 import { useUnitsStore } from '../../stores/data/unitsStore.ts'
 import { useClassesStore } from '../../stores/data/classesStore.ts'
-import { useRapportsStore } from '../../stores/data/rapportsStore.ts'
-import { useMoveUnits } from '../../stores/moveUnits.ts'
 import { useFiltersStore } from '../../stores/data/filtersStore.ts'
 
 import FilterComponent from './FilterComponent.vue'
 
 const unitsList = useUnitsStore()
 const classesList = useClassesStore()
-const rapportsList = useRapportsStore()
-const moveUnits = useMoveUnits()
 const filtersList = useFiltersStore()
 
 const dummyList = useDummyListStore()
@@ -64,7 +60,6 @@ const showClassesFilter = ref('none')
 const mercFilter = ref(false)
 function buttonIsSelected(option) {
   if (option === 'merc') {
-    // classesList.filterMercs(classesFilter.value)
     return mercFilter.value ? 'activated' : 'inactive'
   }
   return showClassesFilter.value === option ? 'activated' : 'inactive'
