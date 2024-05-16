@@ -24,8 +24,7 @@ const moveUnits = useMoveUnits()
 const selectedUnit = ref(moveUnits.selectedUnitId)
 function selectUnitToMove(unitId, name) {
   if (moveUnits.selectedUnitIdF === unitId) {
-    moveUnits.selectUnit(-1)
-    moveUnits.changeSelectedUnit({ id: -1, name: '' })
+    moveUnits.changeSelectedUnit({ id: -1, name: 'PH' })
   } else {
     moveUnits.selectUnit(unitId)
     moveUnits.changeSelectedUnit({ id: unitId, name: name })

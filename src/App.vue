@@ -8,7 +8,7 @@
       <list-of-units></list-of-units>
     </div>
     <div class="col-span-2 relative">
-      <grid-of-squads class="sticky top-10 object-none"></grid-of-squads>
+      <grid-of-squads class="sticky top-36 object-none"></grid-of-squads>
     </div>
   </div>
 </template>

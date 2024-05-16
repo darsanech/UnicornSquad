@@ -11,104 +11,114 @@ Army esta formado de 12 squads
 export const useSquadsStore = defineStore('squads', () => {
   const army = ref([
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ],
     [
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' },
-      { id: '000', name: 'PH' }
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' },
+      { id: 0, name: 'PH' }
     ]
   ])
-  function addToSquad(armyId: number, unitId: string, unitName: string, posId: number) {
-    army.value[armyId][posId] = { id: unitId, name: unitName }
+  function addToSquad(
+    armyId: number,
+    posId: number,
+    unit: { unitId: number; name: string; prevIndex: number; prevSquad: number }
+  ) {
+    if (unit.prevIndex >= 0) {
+      //el antigo al anterior
+      army.value[unit.prevSquad][unit.prevIndex] = army.value[armyId][posId]
+      army.value[armyId][posId] = { id: unit.unitId, name: unit.name }
+    } else {
+      army.value[armyId][posId] = { id: unit.unitId, name: unit.name }
+    }
   }
   return { army, addToSquad }
 })
