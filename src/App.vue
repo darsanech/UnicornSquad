@@ -2,12 +2,13 @@
   <div class="filtros">
     <filter-list></filter-list>
   </div>
-  <div class="flex flex-row">
-    <div class="basis-3/5">
+  <div class="grid grid-cols-5">
+    <!-- HACER DEPENDIENDO DEL TAMAÑO DE LA PANTALLA -->
+    <div class="col-span-3">
       <list-of-units></list-of-units>
     </div>
-    <div class="basis-2/5 relative">
-      <grid-of-squads class="sticky top-36"></grid-of-squads>
+    <div class="col-span-2 relative">
+      <grid-of-squads class="sticky top-10 object-none"></grid-of-squads>
     </div>
   </div>
 </template>

@@ -9,7 +9,7 @@
     </div>
     <div
       v-if="showName"
-      class="text-base text-center capitalize p-1 truncate"
+      class="text-base text-center capitalize p-1"
       :class="{ selectedText: selected }"
     >
       <p v-if="!merc">{{ unit.name }}</p>
