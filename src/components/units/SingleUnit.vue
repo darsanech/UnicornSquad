@@ -1,7 +1,11 @@
 <template>
   <div class="border border-2" :class="{ selectedBg: selected }">
-    <div class="m-2">
-      <img class="object-scale-down w-20" :src="urlImagen" :class="{ selectedImg: selected }" />
+    <div class="m-2 text-center">
+      <img
+        class="object-scale-down w-20 inline-block"
+        :src="urlImagen"
+        :class="{ selectedImg: selected }"
+      />
     </div>
     <div
       v-if="showName"

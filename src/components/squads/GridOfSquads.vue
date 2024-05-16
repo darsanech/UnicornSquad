@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <div class="grid grid-cols-3 flex-wrap m-2" v-if="selectedSquad < 0">
       <single-squad
         aria-disabled="true"
@@ -11,8 +11,8 @@
         :showName="false"
       ></single-squad>
     </div>
-    <div v-else class="">
-      <div class="flex flex-row">
+    <div v-else class="mr-2">
+      <div class="flex flex-row justify-around mb-4">
         <base-button @click="goToSquad(prevSquad)" :mode="'small'"
           >Go to Squad {{ prevSquad }}</base-button
         >
@@ -28,7 +28,9 @@
         :armyId="selectedSquad"
         :showName="true"
       ></single-squad>
-      <div>Squad number {{ selectedSquad }}</div>
+      <div class="text-center mt-2">
+        <p class="squad-name">Squad number {{ selectedSquad }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -49,3 +51,8 @@ function goToSquad(squadId) {
   selectedSquad.value = squadId
 }
 </script>
+<style scoped>
+.squad-name {
+  @apply inline-block font-bold  border border-indigo-300 bg-indigo-50 rounded-lg p-2;
+}
+</style>
