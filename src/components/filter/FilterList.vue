@@ -36,20 +36,17 @@
     </div>
   </div>
   <filter-component
-    v-if="showClassesFilter === 'rapport'"
-    :list="unitsList.units"
-    :filterMode="showClassesFilter"
-  ></filter-component>
-  <filter-component
-    v-if="showClassesFilter === 'class'"
-    :list="classesList.classes"
+    class="dropdown"
+    @mouseover="hoveringDropDown"
+    @mouseleave="leavingDropDown"
+    v-if="showClassesFilter != 'none'"
+    :list="showList"
     :filterMode="showClassesFilter"
   ></filter-component>
 </template>
 <script setup>
 import { ref, watch, computed } from 'vue'
 import BaseButton from '../ui/BaseButton.vue'
-import { useDummyListStore } from '../../stores/dummyList.ts'
 import { useGlobalStore } from '../../stores/globalStore.ts'
 import { useUnitsStore } from '../../stores/data/unitsStore.ts'
 import { useClassesStore } from '../../stores/data/classesStore.ts'
@@ -62,10 +59,10 @@ const classesList = useClassesStore()
 const filtersList = useFiltersStore()
 const globalParam = useGlobalStore()
 
-const dummyList = useDummyListStore()
 const rapportFilter = ref([])
 const showClassesFilter = ref('none')
 const mercFilter = ref(false)
+var hoverDropDrown = false
 function buttonIsSelected(option) {
   if (option === 'merc') {
     return mercFilter.value ? 'activated' : 'inactive'
@@ -73,7 +70,6 @@ function buttonIsSelected(option) {
   return showClassesFilter.value === option ? 'activated' : 'inactive'
 }
 function isPromoted() {
-  console.log(globalParam.promClass)
   return globalParam.promClass ? 'smallActive' : 'small'
 }
 function promote() {
@@ -86,10 +82,27 @@ function selectMerc() {
     showClassesFilter.value = 'none'
   }
 }
+const showList = computed(() => {
+  if (showClassesFilter.value === 'rapport') {
+    return unitsList.units
+  } else {
+    return classesList.classes
+  }
+})
 function selectDropDown(option) {
   showClassesFilter.value = showClassesFilter.value === option ? 'none' : option
 }
-
+function hoveringDropDown() {
+  hoverDropDrown = true
+}
+function leavingDropDown() {
+  hoverDropDrown = false
+  setTimeout(() => {
+    if (!hoverDropDrown) {
+      showClassesFilter.value = 'none'
+    }
+  }, 500)
+}
 function clearListButton(option) {
   filtersList.clearList(option)
   if (option === 'rapport') {
@@ -105,5 +118,8 @@ function getListFilterSize(option) {
 <style scoped>
 .filtro {
   @apply border border-indigo-100 border-2 mb-2 bg-indigo-50;
+}
+.dropdown {
+  @apply bg-red-600;
 }
 </style>
