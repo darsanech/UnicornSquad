@@ -1,13 +1,13 @@
 <template>
   <div class="filtros">
-    <filter-list></filter-list>
+    <filter-list class="h-20"></filter-list>
     <div v-if="!windowSize" class="indigo-squads-mobile">
       <grid-of-squads class="col-span-3 col-start-2"></grid-of-squads>
     </div>
   </div>
   <div v-if="windowSize" class="pc">
-    <div class="col-span-3 border-indigo-300 border-r-2 pt-4">
-      <list-of-units></list-of-units>
+    <div class="col-span-3 border-indigo-300 border-r-2 pt-4 relative">
+      <list-of-units class="sticky top-28"></list-of-units>
     </div>
     <div class="col-span-2 relative p-4 bg-indigo-100">
       <grid-of-squads class="sticky top-28"></grid-of-squads>
@@ -40,10 +40,10 @@ onBeforeUnmount(() => {
 </script>
 <style scoped>
 .filtros {
-  @apply sticky top-0 flex flex-col z-10 h-20;
+  @apply sticky top-0 flex flex-col z-10;
 }
 .pc {
-  @apply grid grid-cols-5;
+  @apply grid grid-cols-5 h-screen;
 }
 .indigo-squads-mobile {
   @apply grid grid-cols-5 py-2 border-b-4 border-indigo-300 bg-indigo-100;
