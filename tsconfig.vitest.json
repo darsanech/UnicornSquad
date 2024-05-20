@@ -5,6 +5,8 @@
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.vitest.tsbuildinfo",
 
+    "allowJs": true,
+    "noImplicitAny": true,
     "lib": [],
     "types": ["node", "jsdom"]
   }
