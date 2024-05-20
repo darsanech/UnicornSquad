@@ -12,7 +12,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import ListOfUnits from './components/units/ListOfUnits.vue'
 import FilterList from './components/filter/FilterList.vue'
 import GridOfSquads from './components/squads/GridOfSquads.vue'

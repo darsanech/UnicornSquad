@@ -27,12 +27,12 @@ const globalParam = useGlobalStore()
 const props = defineProps(['unit', 'showName', 'merc', 'selected', 'squad'])
 const urlImagen = computed(() => {
   const imageurl =
-    'https://darsanech.github.io/UnicornSquad/assets/portraits/' + props.unit.id + '.jpg'
+    'https://darsanech.github.io/UnicornSquads/assets/portraits/' + props.unit.id + '.jpg'
   var http = new XMLHttpRequest()
   http.open('HEAD', imageurl, false)
   http.send()
   if (http.status != 404) return imageurl
-  else return 'https://darsanech.github.io/UnicornSquad/assets/portraits/000.jpg'
+  else return 'https://darsanech.github.io/UnicornSquads/assets/portraits/000.jpg'
 
   // return 'src/assets/000.jpg'
 })
