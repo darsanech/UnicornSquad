@@ -1,4 +1,4 @@
-import { classesData } from '@/assets/data/classesData'
+import { classesData } from '../../assets/data/classesData'
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
 export const useClassesStore = defineStore('classesStore', () => {

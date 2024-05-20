@@ -1,4 +1,4 @@
-import { rapportsData } from '@/assets/data/rapportsData'
+import { rapportsData } from '../../assets/data/rapportsData'
 import { defineStore } from 'pinia'
 import { reactive } from 'vue'
 export const useRapportsStore = defineStore('rapportsStore', () => {

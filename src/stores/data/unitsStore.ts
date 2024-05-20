@@ -1,5 +1,5 @@
-import { unitsData } from '@/assets/data/unitData'
-import { classesData } from '@/assets/data/classesData'
+import { unitsData } from '../../assets/data/unitData'
+import { classesData } from '../../assets/data/classesData'
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
 export const useUnitsStore = defineStore('unitsStore', () => {
