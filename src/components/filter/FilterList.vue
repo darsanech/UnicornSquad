@@ -2,6 +2,7 @@
   <div class="filtro flex flex-row gap-2 justify-between">
     <div class="m-4">
       <base-button
+        class="mr-2"
         :mode="buttonIsSelected('rapport')"
         :disabled="mercFilter"
         :addOn="getListFilterSize('rapport')"
@@ -15,6 +16,7 @@
     </div>
     <div class="m-4">
       <base-button
+        class="mr-2"
         :mode="buttonIsSelected('class')"
         @click="selectDropDown('class')"
         :addOn="getListFilterSize('class')"
@@ -27,7 +29,7 @@
     </div>
 
     <div class="m-4">
-      <base-button :mode="buttonIsSelected('merc')" @click="selectMerc">
+      <base-button :mode="buttonIsSelected('merc')" @click="selectMerc" class="mr-2">
         <p class="text-xl font-bold text-center">Mercenaries</p>
       </base-button>
       <base-button :mode="isPromoted()" @click="promote()">
