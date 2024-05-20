@@ -5,5 +5,4 @@
 </template>
 <script setup>
 import GridOfUnits from './GridOfUnits.vue'
-import FilterList from '../filter/FilterList.vue'
 </script>

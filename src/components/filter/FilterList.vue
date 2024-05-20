@@ -119,7 +119,7 @@ function getListFilterSize(option) {
 </script>
 <style scoped>
 .filtro {
-  @apply border border-indigo-100 border-2 mb-2 bg-indigo-50;
+  @apply border-b-2 border-indigo-300 bg-indigo-200;
 }
 .dropdown {
   @apply bg-red-600;

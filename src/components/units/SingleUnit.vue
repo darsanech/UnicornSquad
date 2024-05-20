@@ -1,5 +1,5 @@
 <template>
-  <div class="border border-2" :class="{ selectedBg: selected }">
+  <div class="border border-2 border-gray-400 bg-white" :class="{ selectedBg: selected }">
     <div class="m-2 text-center">
       <img
         class="object-scale-down inline-block w-20"
