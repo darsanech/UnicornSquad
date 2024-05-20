@@ -3,7 +3,7 @@
     <div class="m-2 text-center">
       <img
         class="object-scale-down inline-block w-20"
-        :src="urlImagen"
+        src="../../assets/portraits/000.jpg"
         :class="{ selectedImg: selected, 'w-36': squad }"
       />
     </div>
@@ -26,7 +26,7 @@ const globalParam = useGlobalStore()
 
 const props = defineProps(['unit', 'showName', 'merc', 'selected', 'squad'])
 const urlImagen = computed(() => {
-  return 'src/assets/portraits/' + '000' + '.jpg'
+  return '../../assets/portraits/000.jpg'
 })
 function widthImg() {
   return props.squad ? 'w-40' : 'w-20'
