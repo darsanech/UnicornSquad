@@ -26,7 +26,7 @@ const globalParam = useGlobalStore()
 
 const props = defineProps(['unit', 'showName', 'merc', 'selected', 'squad'])
 const urlImagen = computed(() => {
-  return 'src/assets/portraits/' + props.unit.id + '.jpg'
+  return 'src/assets/portraits/' + '000' + '.jpg'
 })
 function widthImg() {
   return props.squad ? 'w-40' : 'w-20'
