@@ -13,7 +13,9 @@
       :class="{ selectedText: selected }"
     >
       <p v-if="!merc">{{ unit.name }}</p>
-      <p v-else-if="!globalParam.promClass">{{ unit.name.base }}</p>
+      <p v-else-if="!globalParam.promClass || unit.name.prom === undefined">
+        {{ unit.name.base }}
+      </p>
       <p v-else>{{ unit.name.prom }}</p>
     </div>
     <slot class=""></slot>

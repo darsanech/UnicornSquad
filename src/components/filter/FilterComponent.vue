@@ -12,7 +12,11 @@
             class="mr-1"
           />
           <label v-if="isRapport" :for="filter.id">{{ filter.name }}</label>
-          <label v-else-if="globalParam.promClass" :for="filter.id">{{ filter.name.base }}</label>
+          <label
+            v-else-if="!globalParam.promClass || filter.name.prom === undefined"
+            :for="filter.id"
+            >{{ filter.name.base }}</label
+          >
           <label v-else :for="filter.id">{{ filter.name.prom }}</label>
         </div>
       </div>
