@@ -1,3 +1,20 @@
+export class unitTemplate {
+  id: number
+  name: string | { base: string } | { base: string; prom: string }
+  class: number
+  unique?: boolean
+  constructor(
+    id?: number,
+    name?: string | { base: string } | { base: string; prom: string },
+    classs?: number,
+    unique?: boolean
+  ) {
+    this.id = id ?? 0
+    this.name = name ?? 'PH'
+    this.class = classs ?? 0
+    this.unique = unique ?? false
+  }
+}
 export const unitsData = [
   { id: 1, name: 'alain', class: 101 },
   { id: 2, name: 'scarlett', class: 124 },

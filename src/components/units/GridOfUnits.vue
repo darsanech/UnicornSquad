@@ -4,11 +4,11 @@
       v-for="unit in showList"
       :unit="unit"
       :key="unit.id"
-      @click="selectUnitToMove(unit.id, unit.name, false)"
+      @click="selectUnitToMove(unit)"
       :showName="true"
       :merc="unitsList.mercs"
-      :class="{ selected: unit.id === moveUnits.selectedUnitIdF }"
-      :selected="unit.id === moveUnits.selectedUnitIdF"
+      :class="{ selected: moveUnits.unitIsSelected && unit.id === moveUnits.selectedUnitId }"
+      :selected="moveUnits.unitIsSelected && unit.id === moveUnits.selectedUnitId"
     ></single-unit>
   </div>
 </template>
@@ -22,13 +22,11 @@ import SingleUnit from './SingleUnit.vue'
 const unitsList = useUnitsStore()
 const classesList = useClassesStore()
 const moveUnits = useMoveUnits()
-const selectedUnit = ref(moveUnits.selectedUnitId)
-function selectUnitToMove(unitId, name) {
-  if (moveUnits.selectedUnitIdF === unitId) {
-    moveUnits.changeSelectedUnit({ id: -1, name: 'PH' })
+function selectUnitToMove(unit) {
+  if (moveUnits.selectedUnitId === unit.id) {
+    moveUnits.UnselectUnit
   } else {
-    moveUnits.selectUnit(unitId)
-    moveUnits.changeSelectedUnit({ id: unitId, name: name })
+    moveUnits.changeSelectedUnit(unit)
   }
 }
 const showList = computed(() => {

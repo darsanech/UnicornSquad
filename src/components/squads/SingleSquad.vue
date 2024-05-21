@@ -6,7 +6,7 @@
         :squad="true"
         :showName="showName"
         class="aspect-square content-center"
-        :selected="unit.id === moveUnits.selectedUnitIdF"
+        :selected="moveUnits.unitIsSelected && unit.id === moveUnits.selectedUnitId"
       ></single-unit>
     </div>
   </div>
@@ -28,9 +28,9 @@ function addToSquadOrSwap(index, unit) {
   if (moveUnits.unitIsSelected && moveUnits.selectedUnitId != unit.id) {
     squadsList.addToSquad(props.armyId, index, moveUnits.returnUnitToMove())
     moveUnits.reset()
-  } else if (unit.id > 0 && moveUnits.selectedUnitIdF === -1) {
+  } else if (unit.id > 0 && moveUnits.selectedUnitId === 0) {
     moveUnits.changeSquadAndIndex(index, props.armyId)
-    moveUnits.changeSelectedUnit({ id: unit.id, name: unit.name })
+    moveUnits.changeSelectedUnit(unit)
   } else {
     moveUnits.reset()
   }

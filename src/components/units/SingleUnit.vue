@@ -12,7 +12,7 @@
       class="text-base text-center capitalize p-1"
       :class="{ selectedText: selected }"
     >
-      <p v-if="!merc">{{ unit.name }}</p>
+      <p v-if="unit.id < 99">{{ unit.name }}</p>
       <p v-else-if="!globalParam.promClass || unit.name.prom === undefined">
         {{ unit.name.base }}
       </p>
@@ -43,7 +43,7 @@ function getImageLink() {
   if (props.unit.id === 0) {
     return ''
   }
-  if (props.unit.unique) {
+  if (props.unit.unique || (props.unit.id > 99 && props.unit.name.prom === undefined)) {
     return '-1'
   } else {
     return globalParam.linkImage()

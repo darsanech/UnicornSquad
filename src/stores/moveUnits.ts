@@ -1,54 +1,46 @@
 import { defineStore } from 'pinia'
 import { reactive, ref, computed } from 'vue'
+import { unitTemplate } from '../assets/data/unitData'
 
 export const useMoveUnits = defineStore('moveSquads', () => {
-  const selectedUnitId = ref(-1)
-  const selectedUnitName = ref('')
   const selectedSquad = ref(-1)
   const selectedIndex = ref(-1)
+  const unitIsSelected = ref(false)
+  const selectedUnit = ref(new unitTemplate())
 
   function changeSquadAndIndex(index: number, squad: number) {
     selectedSquad.value = squad
     selectedIndex.value = index
   }
   function reset() {
+    UnselectUnit()
     selectedIndex.value = -1
     selectedSquad.value = -1
-    selectedUnitId.value = -1
   }
-  function changeSelectedUnit(unit: { name: { base: string; prom: string } | string; id: number }) {
-    selectedUnitId.value = unit.id
-    if (typeof unit.name === 'string') {
-      selectedUnitName.value = unit.name
-    } else {
-      selectedUnitName.value = unit.name.base
-    }
+  function changeSelectedUnit(unit: unitTemplate) {
+    unitIsSelected.value = true
+    selectedUnit.value = unit
   }
-  const unitIsSelected = computed(() => {
-    return selectedUnitId.value != -1
-  })
-  function selectUnit(unitId: number) {
-    selectedUnitId.value = unitId
+  function UnselectUnit() {
+    unitIsSelected.value = false
+    selectedUnit.value = new unitTemplate()
   }
-  const selectedUnitIdF = computed(() => {
-    return selectedUnitId.value
+  const selectedUnitId = computed(() => {
+    return selectedUnit.value.id
   })
   function returnUnitToMove() {
     return {
-      unitId: selectedUnitId.value,
-      name: selectedUnitName.value,
+      unit: selectedUnit.value,
       prevSquad: selectedSquad.value,
       prevIndex: selectedIndex.value
     }
   }
   return {
+    selectedUnit,
     selectedUnitId,
-    selectedUnitName,
     changeSelectedUnit,
     changeSquadAndIndex,
     unitIsSelected,
-    selectedUnitIdF,
-    selectUnit,
     returnUnitToMove,
     reset
   }
