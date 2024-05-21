@@ -50,7 +50,7 @@ function getImageLink() {
   }
 }
 function changeImage() {
-  urlImagen.value = 'src/assets/portraits/' + props.unit.id + getImageLink() + '.jpg'
+  urlImagen.value = '/UnicornSquad/portraits/' + props.unit.id + getImageLink() + '.jpg'
 }
 </script>
 <style scoped>
