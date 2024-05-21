@@ -3,6 +3,7 @@
     <single-unit
       v-for="unit in showList"
       :unit="unit"
+      :key="unit.id"
       @click="selectUnitToMove(unit.id, unit.name, false)"
       :showName="true"
       :merc="unitsList.mercs"
