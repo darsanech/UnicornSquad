@@ -11,7 +11,6 @@ const props = defineProps(['mode', 'addOn'])
 .baseButton {
   @apply border-solid border-4 rounded-2xl cursor-pointer p-2;
 }
-button:active,
 button:hover {
   @apply border-blue-500 bg-cyan-400;
 }
