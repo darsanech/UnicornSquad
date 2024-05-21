@@ -36,8 +36,15 @@ watch(
 globalParam.$subscribe((promClass, state) => {
   changeImage()
 })
+function getImageLink() {
+  if (props.unit.unique) {
+    return 1
+  } else {
+    return globalParam.linkImage()
+  }
+}
 function changeImage() {
-  urlImagen.value = 'src/assets/portraits/' + props.unit.id + '-' + globalParam.linkImage() + '.jpg'
+  urlImagen.value = 'src/assets/portraits/' + props.unit.id + '-' + getImageLink() + '.jpg'
 }
 </script>
 <style scoped>
