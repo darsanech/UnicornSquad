@@ -21,12 +21,13 @@
 </template>
 <script setup>
 import { useGlobalStore } from '../../stores/globalStore.ts'
-import { watch, ref } from 'vue'
+import { watch, ref, onMounted } from 'vue'
 const globalParam = useGlobalStore()
 const props = defineProps(['unit', 'showName', 'merc', 'selected', 'squad'])
-const urlImagen = ref(
-  'src/assets/portraits/' + props.unit.id + '-' + globalParam.linkImage() + '.jpg'
-)
+const urlImagen = ref('')
+onMounted(() => {
+  changeImage()
+})
 watch(
   () => props.unit,
   () => {
@@ -37,14 +38,17 @@ globalParam.$subscribe((promClass, state) => {
   changeImage()
 })
 function getImageLink() {
+  if (props.unit.id === 0) {
+    return ''
+  }
   if (props.unit.unique) {
-    return 1
+    return '-1'
   } else {
     return globalParam.linkImage()
   }
 }
 function changeImage() {
-  urlImagen.value = 'src/assets/portraits/' + props.unit.id + '-' + getImageLink() + '.jpg'
+  urlImagen.value = 'src/assets/portraits/' + props.unit.id + getImageLink() + '.jpg'
 }
 </script>
 <style scoped>
