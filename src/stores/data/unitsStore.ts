@@ -1,11 +1,11 @@
 import { unitsData } from '../../assets/data/unitData'
-import { classesData } from '../../assets/data/classesData'
+import { classesDataMerc, classesDataNoMerc } from '../../assets/data/classesData'
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
 export const useUnitsStore = defineStore('unitsStore', () => {
   const units = reactive(unitsData)
   const unitsFiltered = ref(unitsData)
-  const classesFiltered = ref(classesData)
+  const classesFiltered = ref(classesDataMerc.concat(classesDataNoMerc))
   const mercs = ref(false)
   const rapportFilter = ref<number[]>([])
   const classesFilter = ref<number[]>([])
@@ -25,7 +25,7 @@ export const useUnitsStore = defineStore('unitsStore', () => {
   }
   function updateFilterList() {
     if (mercs.value) {
-      var filteredListClasses = classesData
+      var filteredListClasses = classesDataMerc
       if (classesFilter.value.length > 0) {
         filteredListClasses = filteredListClasses.filter((unit) =>
           classesFilter.value.includes(unit.id)

@@ -1,5 +1,5 @@
 <template>
-  <div class="filtro flex flex-row gap-2 justify-between">
+  <div class="filtro flex flex-row gap-2 justify-between h-20">
     <div class="m-4">
       <base-button
         class="mr-2"

@@ -1,6 +1,6 @@
 <template>
   <div class="filtros">
-    <filter-list class="h-20"></filter-list>
+    <filter-list></filter-list>
     <div v-if="!windowSize" class="indigo-squads-mobile">
       <grid-of-squads class="col-span-3 col-start-2"></grid-of-squads>
     </div>
