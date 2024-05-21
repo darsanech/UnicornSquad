@@ -21,10 +21,16 @@
 </template>
 <script setup>
 import { useGlobalStore } from '../../stores/globalStore.ts'
-import { computed, ref } from 'vue'
+import { watch, ref } from 'vue'
 const globalParam = useGlobalStore()
 const props = defineProps(['unit', 'showName', 'merc', 'selected', 'squad'])
-const urlImagen2 = ref('src/assets/portraits/' + props.unit.id + '-1.jpg')
+const urlImagen2 = ref(
+  'src/assets/portraits/' + props.unit.id + '-' + globalParam.linkImage() + '.jpg'
+)
+globalParam.$subscribe((promClass, state) => {
+  urlImagen2.value =
+    'src/assets/portraits/' + props.unit.id + '-' + globalParam.linkImage() + '.jpg'
+})
 </script>
 <style scoped>
 .selectedBg {

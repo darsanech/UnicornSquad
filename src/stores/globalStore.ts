@@ -5,8 +5,8 @@ export const useGlobalStore = defineStore('globalStore', () => {
   function promote() {
     promClass.value = !promClass.value
   }
-  const promClassC = computed(() => {
-    return promClass.value
-  })
-  return { promClass, promote, promClassC }
+  function linkImage() {
+    return promClass.value ? '2' : '1'
+  }
+  return { promClass, promote, linkImage }
 })
