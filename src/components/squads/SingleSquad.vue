@@ -5,7 +5,7 @@
         :unit="unit"
         :squad="true"
         :showName="showName"
-        class="aspect-square"
+        class="aspect-square content-center"
         :selected="unit.id === moveUnits.selectedUnitIdF"
       ></single-unit>
     </div>

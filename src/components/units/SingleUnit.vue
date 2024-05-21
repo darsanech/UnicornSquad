@@ -2,9 +2,9 @@
   <div class="border border-2 border-gray-400 bg-white" :class="{ selectedBg: selected }">
     <div class="m-2 text-center">
       <img
-        class="object-scale-down inline-block w-20"
-        :src="urlImagen2"
-        :class="{ selectedImg: selected, 'w-36': squad }"
+        class="object-scale-down inline-block"
+        :src="urlImagen"
+        :class="{ selectedImg: selected }"
       />
     </div>
     <div
@@ -24,13 +24,21 @@ import { useGlobalStore } from '../../stores/globalStore.ts'
 import { watch, ref } from 'vue'
 const globalParam = useGlobalStore()
 const props = defineProps(['unit', 'showName', 'merc', 'selected', 'squad'])
-const urlImagen2 = ref(
+const urlImagen = ref(
   'src/assets/portraits/' + props.unit.id + '-' + globalParam.linkImage() + '.jpg'
 )
+watch(
+  () => props.unit,
+  () => {
+    changeImage()
+  }
+)
 globalParam.$subscribe((promClass, state) => {
-  urlImagen2.value =
-    'src/assets/portraits/' + props.unit.id + '-' + globalParam.linkImage() + '.jpg'
+  changeImage()
 })
+function changeImage() {
+  urlImagen.value = 'src/assets/portraits/' + props.unit.id + '-' + globalParam.linkImage() + '.jpg'
+}
 </script>
 <style scoped>
 .selectedBg {
