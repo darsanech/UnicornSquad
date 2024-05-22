@@ -7,7 +7,7 @@
         v-for="(squad, index) in squadsList.army"
         :armyId="-1"
         :squad="squad"
-        class="m-4"
+        class="m-4 cursor-pointer"
         :showName="false"
       ></single-squad>
     </div>

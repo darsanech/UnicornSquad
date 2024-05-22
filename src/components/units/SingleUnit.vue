@@ -1,8 +1,11 @@
 <template>
-  <div class="border border-2 border-gray-400 bg-white" :class="{ selectedBg: selected }">
+  <div
+    class="border-2 border-gray-400 bg-white"
+    :class="{ selectedBg: selected, 'cursor-pointer': !isPH() }"
+  >
     <div class="m-2 text-center">
       <img
-        class="object-scale-down inline-block"
+        class="object-fill h-auto w-full inline-block border border-gray-400"
         :src="urlImagen"
         :class="{ selectedImg: selected }"
       />
@@ -40,7 +43,7 @@ globalParam.$subscribe((promClass, state) => {
   changeImage()
 })
 function getImageLink() {
-  if (props.unit.id === 0) {
+  if (isPH()) {
     return ''
   }
   if (props.unit.unique || (props.unit.id > 99 && props.unit.name.prom === undefined)) {
@@ -52,13 +55,16 @@ function getImageLink() {
 function changeImage() {
   urlImagen.value = '/UnicornSquad/portraits/' + props.unit.id + getImageLink() + '.jpg'
 }
+function isPH() {
+  return props.unit.id === 0
+}
 </script>
 <style scoped>
 .selectedBg {
   @apply bg-green-400 border-green-700;
 }
 .selectedText {
-  @apply text-blue-950 font-extrabold;
+  @apply text-blue-950 font-bold;
 }
 .selectedImg {
   @apply animate-bounce border-green-700 border;
