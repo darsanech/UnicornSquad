@@ -10,104 +10,7 @@ Army esta formado de 12 squads
 */
 
 export const useSquadsStore = defineStore('squads', () => {
-  const army = ref([
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ],
-    [
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate(),
-      new unitTemplate()
-    ]
-  ])
+  const army = ref<unitTemplate[][]>(Array.from({ length: 8 }, () => []))
   function addToSquad(
     armyId: number,
     posId: number,
@@ -120,6 +23,24 @@ export const useSquadsStore = defineStore('squads', () => {
     } else {
       army.value[armyId][posId] = unit.unit
     }
+    localStorage.setItem('squad' + armyId, JSON.stringify(army.value[armyId]))
   }
-  return { army, addToSquad }
+  function checkSavedArmy() {
+    for (let i = 0; i < 12; i++) {
+      const squad = localStorage.getItem('squad' + i)
+      if (squad) {
+        army.value[i] = JSON.parse(squad)
+      } else {
+        army.value[i] = [
+          new unitTemplate(),
+          new unitTemplate(),
+          new unitTemplate(),
+          new unitTemplate(),
+          new unitTemplate(),
+          new unitTemplate()
+        ]
+      }
+    }
+  }
+  return { army, addToSquad, checkSavedArmy }
 })

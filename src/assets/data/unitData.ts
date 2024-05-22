@@ -10,7 +10,7 @@ export class unitTemplate {
     unique?: boolean
   ) {
     this.id = id ?? 0
-    this.name = name ?? 'PH'
+    this.name = name ?? 'None'
     this.class = classs ?? 0
     this.unique = unique ?? false
   }

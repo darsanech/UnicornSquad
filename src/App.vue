@@ -31,6 +31,9 @@ import WarningBox from './components/extra/WarningBox.vue'
 import ListOfUnits from './components/units/ListOfUnits.vue'
 import FilterList from './components/filter/FilterList.vue'
 import GridOfSquads from './components/squads/GridOfSquads.vue'
+import { useSquadsStore } from './stores/squads'
+const squadsList = useSquadsStore()
+
 const screenWidth = ref(window.innerWidth)
 const windowSize = computed(() => {
   return screenWidth.value > 1280
@@ -40,6 +43,7 @@ function updateScreenWidth() {
 }
 onMounted(() => {
   window.addEventListener('resize', updateScreenWidth)
+  squadsList.checkSavedArmy()
 })
 onBeforeUnmount(() => {
   window.removeEventListener('resize', updateScreenWidth)
