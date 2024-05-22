@@ -5,9 +5,13 @@
         :unit="unit"
         :squad="true"
         :showName="showName"
-        class="aspect-square content-center"
+        class="aspect-square content-center relative"
         :selected="moveUnits.unitIsSelected && unit.id === moveUnits.selectedUnitId"
-      ></single-unit>
+      >
+        <button class="removeButton" v-if="showName" @click.stop="removeFromSquad(index)">
+          🗑️
+        </button>
+      </single-unit>
     </div>
   </div>
 </template>
@@ -35,5 +39,16 @@ function addToSquadOrSwap(index, unit) {
     moveUnits.reset()
   }
 }
+function removeFromSquad(index) {
+  squadsList.removeFromSquad(index, props.armyId)
+}
 </script>
-<style scoped></style>
+<style scoped>
+.removeButton {
+  @apply left-full top-full -mt-8 -ml-8 absolute border-black text-center
+  border border-solid aspect-square z-40;
+}
+.removeButton:hover {
+  @apply bg-red-200 border-red-500;
+}
+</style>

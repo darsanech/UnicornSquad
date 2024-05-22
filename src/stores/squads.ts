@@ -23,7 +23,14 @@ export const useSquadsStore = defineStore('squads', () => {
     } else {
       army.value[armyId][posId] = unit.unit
     }
-    localStorage.setItem('squad' + armyId, JSON.stringify(army.value[armyId]))
+    localSave(armyId)
+  }
+  function removeFromSquad(index: number, squad: number) {
+    army.value[squad][index] = new unitTemplate()
+    localSave(squad)
+  }
+  function localSave(squad: number) {
+    localStorage.setItem('squad' + squad, JSON.stringify(army.value[squad]))
   }
   function checkSavedArmy() {
     for (let i = 0; i < 12; i++) {
@@ -42,5 +49,5 @@ export const useSquadsStore = defineStore('squads', () => {
       }
     }
   }
-  return { army, addToSquad, checkSavedArmy }
+  return { army, addToSquad, checkSavedArmy, removeFromSquad }
 })

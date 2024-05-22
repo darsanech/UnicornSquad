@@ -21,7 +21,7 @@
       </p>
       <p v-else>{{ unit.name.prom }}</p>
     </div>
-    <slot class=""></slot>
+    <slot></slot>
   </div>
 </template>
 <script setup>
