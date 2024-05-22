@@ -1,4 +1,10 @@
 <template>
+  <warning-box :bottom="true">
+    <p>
+      I only have data about characters that I have unlocked, so not every unit, mercenary or
+      portrait is available yet.
+    </p>
+  </warning-box>
   <div class="filtros">
     <filter-list></filter-list>
     <div v-if="!windowSize" class="indigo-squads-mobile">
@@ -21,6 +27,7 @@
 </template>
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import WarningBox from './components/extra/WarningBox.vue'
 import ListOfUnits from './components/units/ListOfUnits.vue'
 import FilterList from './components/filter/FilterList.vue'
 import GridOfSquads from './components/squads/GridOfSquads.vue'
