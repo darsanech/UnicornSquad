@@ -47,7 +47,7 @@
   ></filter-component>
 </template>
 <script setup>
-import { ref, watch, computed } from 'vue'
+import { ref, computed } from 'vue'
 import BaseButton from '../ui/BaseButton.vue'
 import { useGlobalStore } from '../../stores/globalStore.ts'
 import { useUnitsStore } from '../../stores/data/unitsStore.ts'
@@ -61,7 +61,6 @@ const classesList = useClassesStore()
 const filtersList = useFiltersStore()
 const globalParam = useGlobalStore()
 
-const rapportFilter = ref([])
 const showClassesFilter = ref('none')
 const mercFilter = ref(false)
 var hoverDropDrown = false
@@ -75,11 +74,11 @@ function isPromoted() {
   return globalParam.promClass ? 'smallActive' : 'small'
 }
 function promote() {
-  return globalParam.promote()
+  globalParam.promote()
 }
 function selectMerc() {
+  globalParam.toggleMerc()
   mercFilter.value = !mercFilter.value
-  unitsList.mercFilter(mercFilter.value)
   if (mercFilter.value && showClassesFilter.value === 'rapport') {
     showClassesFilter.value = 'none'
   }
@@ -111,6 +110,7 @@ function clearListButton(option) {
     unitsList.setFilterRapport([])
   } else {
     unitsList.setFilterClasses([])
+    classesList.setFilterClasses([])
   }
 }
 function getListFilterSize(option) {

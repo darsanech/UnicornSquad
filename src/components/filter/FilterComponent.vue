@@ -26,12 +26,14 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useUnitsStore } from '../../stores/data/unitsStore.ts'
+import { useClassesStore } from '../../stores/data/classesStore.ts'
 import { useRapportsStore } from '../../stores/data/rapportsStore.ts'
 import { useFiltersStore } from '../../stores/data/filtersStore.ts'
 import { useGlobalStore } from '../../stores/globalStore.ts'
 
 const props = defineProps(['list', 'filterMode'])
 const unitsList = useUnitsStore()
+const classesList = useClassesStore()
 const rapportsList = useRapportsStore()
 const filtersList = useFiltersStore()
 const globalParam = useGlobalStore()
@@ -47,6 +49,7 @@ function applyFilter() {
     unitsList.setFilterRapport(rapported)
   } else {
     unitsList.setFilterClasses(listFilter.value)
+    classesList.setFilterClasses(listFilter.value)
   }
 }
 function disableRapport(unitId) {

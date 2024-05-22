@@ -16,12 +16,14 @@
 import { useUnitsStore } from '../../stores/data/unitsStore.ts'
 import { useClassesStore } from '../../stores/data/classesStore.ts'
 import { useMoveUnits } from '../../stores/moveUnits.ts'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
+import { useGlobalStore } from '../../stores/globalStore.ts'
 
 import SingleUnit from './SingleUnit.vue'
 const unitsList = useUnitsStore()
 const classesList = useClassesStore()
 const moveUnits = useMoveUnits()
+const globalParam = useGlobalStore()
 function selectUnitToMove(unit) {
   if (moveUnits.selectedUnitId === unit.id) {
     moveUnits.reset()
@@ -30,8 +32,8 @@ function selectUnitToMove(unit) {
   }
 }
 const showList = computed(() => {
-  if (unitsList.mercs) {
-    return unitsList.classesFiltered
+  if (globalParam.mercSelected) {
+    return classesList.mercsList
   } else {
     return unitsList.unitsFiltered
   }
