@@ -24,7 +24,7 @@ const classesList = useClassesStore()
 const moveUnits = useMoveUnits()
 function selectUnitToMove(unit) {
   if (moveUnits.selectedUnitId === unit.id) {
-    moveUnits.UnselectUnit
+    moveUnits.reset()
   } else {
     moveUnits.changeSelectedUnit(unit)
   }
