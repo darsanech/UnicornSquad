@@ -12,13 +12,13 @@ const props = defineProps(['mode', 'addOn'])
   @apply border-solid border-4 rounded-2xl cursor-pointer p-2;
 }
 button:hover {
-  @apply border-blue-500 bg-cyan-400;
+  @apply border-indigo-700 bg-blue-300;
 }
 .activated {
-  @apply border-blue-700 bg-cyan-300;
+  @apply border-indigo-800 bg-blue-400;
 }
 .inactive {
-  @apply border-cyan-200 bg-cyan-100;
+  @apply border-indigo-600 bg-blue-200;
 }
 button:disabled {
   @apply border-gray-300 bg-gray-200;
