@@ -28,6 +28,7 @@ function selectUnitToMove(unit) {
   if (moveUnits.selectedUnitId === unit.id) {
     moveUnits.reset()
   } else {
+    moveUnits.reset()
     moveUnits.changeSelectedUnit(unit)
   }
 }

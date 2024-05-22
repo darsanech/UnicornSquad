@@ -67,6 +67,22 @@ function isPH() {
   @apply text-blue-950 font-bold;
 }
 .selectedImg {
-  @apply animate-bounce border-green-700 border;
+  animation-name: selectAnimation;
+  animation-duration: 1.5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  @apply border-green-700 border;
+}
+@keyframes selectAnimation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.9);
+  }
+}
+.selectAnimation-leave-active {
+  animation: selectAnimation 0.1s ease-in reverse;
 }
 </style>
