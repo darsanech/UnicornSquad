@@ -47,7 +47,7 @@ onBeforeUnmount(() => {
 </script>
 <style scoped>
 .filtros {
-  @apply sticky top-0 flex flex-col z-10;
+  @apply sticky top-0 flex flex-col z-40;
 }
 .pc {
   @apply grid grid-cols-5 h-screen;

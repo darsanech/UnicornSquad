@@ -63,6 +63,6 @@ watch([listFilter], function () {
 <style scoped>
 .dropDown {
   @apply flex flex-wrap gap-4 p-2 
-  border-2 border-t-0 border-solid border-indigo-300 bg-indigo-200  absolute z-10  bg-opacity-90 rounded-xl rounded-t-none mx-6 mt-0;
+  border-2 border-t-0 border-solid border-indigo-300 bg-indigo-200  absolute bg-opacity-90 rounded-xl rounded-t-none mx-6 mt-0;
 }
 </style>

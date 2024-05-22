@@ -37,14 +37,16 @@
       </base-button>
     </div>
   </div>
-  <filter-component
-    class="dropdown"
-    @mouseover="hoveringDropDown"
-    @mouseleave="leavingDropDown"
-    v-if="showClassesFilter != 'none'"
-    :list="showList"
-    :filterMode="showClassesFilter"
-  ></filter-component>
+  <transition name="slideDown">
+    <filter-component
+      class="dropdown"
+      @mouseover="hoveringDropDown"
+      @mouseleave="leavingDropDown"
+      v-if="showClassesFilter != 'none'"
+      :list="showList"
+      :filterMode="showClassesFilter"
+    ></filter-component>
+  </transition>
 </template>
 <script setup>
 import { ref, computed } from 'vue'
@@ -119,9 +121,23 @@ function getListFilterSize(option) {
 </script>
 <style scoped>
 .filtro {
-  @apply border-b-2 border-indigo-300 bg-indigo-200;
+  @apply border-b-2 border-indigo-300 bg-indigo-200 z-40;
 }
 .dropdown {
-  @apply bg-red-600;
+  @apply bg-red-600 z-10;
+}
+@keyframes slideDown {
+  from {
+    top: -200px;
+  }
+  to {
+    top: 0px;
+  }
+}
+.slideDown-enter-active {
+  animation: slideDown 0.3s ease-out forwards;
+}
+.slideDown-leave-active {
+  animation: slideDown 0.1s ease-in reverse;
 }
 </style>
