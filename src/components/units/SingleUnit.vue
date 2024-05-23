@@ -8,6 +8,7 @@
         class="object-fill h-auto w-full inline-block border border-gray-400"
         :src="urlImagen"
         :class="{ selectedImg: selected }"
+        @error="imageBroken"
       />
     </div>
     <div
@@ -51,6 +52,9 @@ function getImageLink() {
   } else {
     return globalParam.linkImage()
   }
+}
+function imageBroken(e) {
+  e.target.src = '/UnicornSquad/portraits/404.jpg'
 }
 function changeImage() {
   urlImagen.value = '/UnicornSquad/portraits/' + props.unit.id + getImageLink() + '.jpg'
