@@ -1,3 +1,11 @@
+export class classTemplate {
+  id: number
+  name: { base: string } | { base: string; prom: string }
+  constructor(id?: number, name?: { base: string } | { base: string; prom: string }) {
+    this.id = id ?? 0
+    this.name = name ?? { base: 'None Base', prom: 'None Prom' }
+  }
+}
 export const classesDataMerc = [
   { id: 102, name: { base: 'fighter', prom: 'vanguard' } },
   { id: 103, name: { base: 'soldier', prom: 'sergeant' } },

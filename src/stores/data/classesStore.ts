@@ -1,9 +1,12 @@
-import { classesDataMerc, classesDataNoMerc } from '../../assets/data/classesData'
+import { classesDataMerc, classesDataNoMerc, classTemplate } from '../../assets/data/classesData'
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
+import { useGlobalStore } from '../globalStore'
+
 export const useClassesStore = defineStore('classesStore', () => {
-  const classes = reactive(classesDataMerc.concat(classesDataNoMerc))
-  const mercsList = ref(classesDataMerc)
+  const globalStore = useGlobalStore()
+  const classes = reactive(classesDataMerc.concat(classesDataNoMerc).sort(compare))
+  const mercsList = ref(classesDataMerc.sort(compare))
   const classesFilter = ref<number[]>([])
   function setFilterClasses(classes: [number]) {
     classesFilter.value = classes
@@ -23,7 +26,35 @@ export const useClassesStore = defineStore('classesStore', () => {
         classesFilter.value.includes(unit.id)
       )
     }
-    mercsList.value = filteredListClasses
+    mercsList.value = filteredListClasses.sort(compare)
+  }
+  globalStore.$subscribe((promClass, state) => {
+    mercsList.value.sort(compare)
+    classes.sort(compare)
+  })
+  function compare(a: any, b: any) {
+    let comparison = 0
+    if (globalStore.promClass) {
+      if (
+        (a.name.prom !== undefined ? a.name.prom : a.name.base) >
+        (b.name.prom !== undefined ? b.name.prom : b.name.base)
+      ) {
+        comparison = 1
+      } else if (
+        (a.name.prom !== undefined ? a.name.prom : a.name.base) <
+        (b.name.prom !== undefined ? b.name.prom : b.name.base)
+      ) {
+        comparison = -1
+      }
+    } else {
+      if (a.name.base > b.name.base) {
+        comparison = 1
+      } else if (a.name.base < b.name.base) {
+        comparison = -1
+      }
+    }
+
+    return comparison
   }
   return { classes, mercsList, filterMercs, setFilterClasses }
 })
