@@ -28,10 +28,10 @@ button:disabled {
 }
 .small:hover,
 .smallActive:hover {
-  @apply border-red-500 bg-red-300 text-xs font-bold text-center;
+  @apply border-red-500 bg-red-200 text-xs font-bold text-center;
 }
 .smallActive {
-  @apply border-red-700 bg-red-200 text-xs font-bold text-center;
+  @apply border-rose-600 bg-red-300 text-xs font-bold text-center;
 }
 .numberOfFilters {
   @apply left-0 top-0 absolute -mt-3 -ml-4 bg-green-100 border-green-500 
