@@ -28,7 +28,7 @@
 import { useGlobalStore } from '../../stores/globalStore.ts'
 import { watch, ref, onMounted } from 'vue'
 const globalParam = useGlobalStore()
-const props = defineProps(['unit', 'showName', 'merc', 'selected', 'squad'])
+const props = defineProps(['unit', 'showName', 'selected', 'squad'])
 const urlImagen = ref('')
 onMounted(() => {
   changeImage()

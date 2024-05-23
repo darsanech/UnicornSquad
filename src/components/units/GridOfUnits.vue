@@ -6,7 +6,6 @@
       :key="unit.id"
       @click="selectUnitToMove(unit)"
       :showName="true"
-      :merc="unitsList.mercs"
       :class="{ selected: moveUnits.unitIsSelected && unit.id === moveUnits.selectedUnitId }"
       :selected="moveUnits.unitIsSelected && unit.id === moveUnits.selectedUnitId"
     ></single-unit>
