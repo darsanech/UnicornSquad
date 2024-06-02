@@ -56,7 +56,11 @@ export const unitsData = [
   { id: 38, name: 'hilda', class: 120 },
   { id: 39, name: 'jeremy', class: 106 },
   { id: 40, name: 'gilbert', class: 128, unique: true },
-  { id: 41, name: 'celeste', class: 121 },
+  { id: 41, name: 'celeste', class: 121, unique: true },
   { id: 42, name: 'lhinalagos', class: 122, unique: true },
-  { id: 43, name: 'ridiel', class: 122, unique: true }
+  { id: 43, name: 'ridiel', class: 122, unique: true },
+  { id: 44, name: 'ithilion', class: 130, unique: true },
+  { id: 45, name: 'galadmir', class: 122, unique: true },
+  { id: 46, name: 'railanor', class: 130, unique: true },
+  { id: 47, name: 'eltolinde', class: 131, unique: true }
 ]

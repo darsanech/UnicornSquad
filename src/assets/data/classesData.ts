@@ -27,7 +27,8 @@ export const classesDataMerc = [
   { id: 119, name: { base: 'shaman', prom: 'druid' } },
   { id: 120, name: { base: 'wyvern knight', prom: 'wyvern master' } },
   { id: 121, name: { base: 'gryphon knight', prom: 'gryphon master' } },
-  { id: 122, name: { base: 'elven archer' } }
+  { id: 122, name: { base: 'elven archer' } },
+  { id: 130, name: { base: 'elven fencer' } }
 ]
 export const classesDataNoMerc = [
   { id: 101, name: { base: 'lord', prom: 'high lord' } },
@@ -37,5 +38,6 @@ export const classesDataNoMerc = [
   { id: 127, name: { base: 'paladin' } },
   { id: 128, name: { base: 'prince' } },
   { id: 129, name: { base: 'dark marquess' } },
-  { id: 126, name: { base: 'elven augur' } }
+  { id: 126, name: { base: 'elven augur' } },
+  { id: 131, name: { base: 'elven sibyl' } }
 ]
