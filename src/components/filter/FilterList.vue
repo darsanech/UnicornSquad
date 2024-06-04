@@ -92,8 +92,17 @@ const showList = computed(() => {
     return classesList.classes
   }
 })
-function selectDropDown(option) {
-  showClassesFilter.value = showClassesFilter.value === option ? 'none' : option
+async function selectDropDown(option) {
+  if (showClassesFilter.value === 'none') {
+    showClassesFilter.value = showClassesFilter.value === option ? 'none' : option
+  } else {
+    showClassesFilter.value = 'none'
+    await delay(100)
+    showClassesFilter.value = showClassesFilter.value === option ? 'none' : option
+  }
+}
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 function hoveringDropDown() {
   hoverDropDrown = true
